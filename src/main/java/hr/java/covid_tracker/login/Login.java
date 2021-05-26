@@ -5,19 +5,19 @@ import java.util.Objects;
 public class Login {
 
     private Long id;
-    private String firstname;
-    private String lastname;
-    private String username;
-    private String password;
-    private Type role;
+    private String ime;
+    private String prezime;
+    private String korisnickoIme;
+    private String lozinka;
+    private Type uloga;
 
-    public Login(Long id, String firstname, String lastname, String username, String password, Type role) {
+    public Login(Long id, String ime, String prezime, String korisnickoIme, String lozinka, Type uloga) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.username = username;
-        this.password = password;
-        this.role = role;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.uloga = uloga;
     }
 
     public Long getId() {
@@ -28,24 +28,24 @@ public class Login {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getIme() {
+        return ime;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getPrezime() {
+        return prezime;
     }
 
-    public String getUsername() {
-        return username;
+    public String getKorisnickoIme() {
+        return korisnickoIme;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLozinka() {
+        return lozinka;
     }
 
-    public Type getRole() {
-        return role;
+    public Type getUloga() {
+        return uloga;
     }
 
     @Override
@@ -53,11 +53,11 @@ public class Login {
         if (this == o) return true;
         if (!(o instanceof Login)) return false;
         Login login = (Login) o;
-        return id.equals(login.id) && firstname.equals(login.firstname) && lastname.equals(login.lastname) && username.equals(login.username) && password.equals(login.password) && role.equals(login.role);
+        return id.equals(login.id) && ime.equals(login.ime) && prezime.equals(login.prezime) && korisnickoIme.equals(login.korisnickoIme) && lozinka.equals(login.lozinka) && uloga.equals(login.uloga);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname, username, password, role);
+        return Objects.hash(id, ime, prezime, korisnickoIme, lozinka, uloga);
     }
 }
