@@ -1,4 +1,4 @@
-package hr.java.covid_tracker.login;
+package hr.java.covid_tracker.model;
 
 import java.util.Objects;
 

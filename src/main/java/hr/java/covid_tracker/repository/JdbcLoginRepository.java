@@ -1,5 +1,7 @@
-package hr.java.covid_tracker.login;
+package hr.java.covid_tracker.repository;
 
+import hr.java.covid_tracker.model.Login;
+import hr.java.covid_tracker.model.Type;
 import org.springframework.context.annotation.Primary;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,7 +15,7 @@ import java.util.Set;
 
 @Primary
 @Repository
-public class JdbcLoginRepository implements LoginRepository{
+public class JdbcLoginRepository implements LoginRepository {
 
     private static final String TABLE_NAME = "korisnici";
     private static final String GENERATED_KEY_COLUMN = "id";
