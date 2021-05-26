@@ -15,10 +15,10 @@ import java.util.Set;
 @Repository
 public class JdbcLoginRepository implements LoginRepository{
 
-    private static final String TABLE_NAME = "users";
+    private static final String TABLE_NAME = "korisnici";
     private static final String GENERATED_KEY_COLUMN = "id";
 
-    private static final String SELECT_ALL = "SELECT * FROM users";
+    private static final String SELECT_ALL = "SELECT * FROM korisnici";
 
     private final JdbcTemplate jdbcTemplate;
     private final SimpleJdbcInsert simpleJdbcInsert;
@@ -39,7 +39,7 @@ public class JdbcLoginRepository implements LoginRepository{
     public Optional<Login> findByUsername(String username) {
         try {
             return Optional.ofNullable(
-                    jdbcTemplate.queryForObject(SELECT_ALL + " WHERE username = ?", this::mapRowToLogin, username)
+                    jdbcTemplate.queryForObject(SELECT_ALL + " WHERE korisnicko_ime = ?", this::mapRowToLogin, username)
             );
         } catch (EmptyResultDataAccessException ex) {
             return Optional.empty();
@@ -49,11 +49,11 @@ public class JdbcLoginRepository implements LoginRepository{
     private Login mapRowToLogin(ResultSet rs, int rownum) throws SQLException {
         return new Login(
                 rs.getLong("ID"),
-                rs.getString("FIRST_NAME"),
-                rs.getString("LAST_NAME"),
-                rs.getString("USERNAME"),
-                rs.getString("PASSWORD"),
-                Type.valueOf(rs.getString("ROLE"))
+                rs.getString("IME"),
+                rs.getString("PREZIME"),
+                rs.getString("KORISNICKO_IME"),
+                rs.getString("LOZINKA"),
+                Type.valueOf(rs.getString("ULOGA"))
         );
     }
 

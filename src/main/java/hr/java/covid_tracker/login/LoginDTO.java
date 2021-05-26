@@ -2,39 +2,39 @@ package hr.java.covid_tracker.login;
 
 public class LoginDTO {
 
-    private final String username;
-    private final String password;
-    private final Type role;
+    private final String korisnickoIme;
+    private final String lozinka;
+    private final Type uloga;
 
-    public LoginDTO(String username, String password, Type role) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
+    public LoginDTO(String korisnickoIme, String lozinka, Type uloga) {
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.uloga = uloga;
     }
 
     public LoginDTO(Login login){
-        this.username = login.getUsername();
-        this.password = login.getPassword();
-        this.role = login.getRole();
+        this.korisnickoIme = login.getKorisnickoIme();
+        this.lozinka = login.getLozinka();
+        this.uloga = login.getUloga();
     }
 
-    public String getUsername() {
-        return username;
+    public String getKorisnickoIme() {
+        return korisnickoIme;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLozinka() {
+        return lozinka;
     }
 
-    public Type getRole() {
-        return role;
+    public Type getUloga() {
+        return uloga;
     }
 
     @Override
     public String toString(){
         return "LoginDTO{"+
-                "username='" + username + '\'' +
-                ", role=" + role +
+                "korisnickoIme='" + korisnickoIme + '\'' +
+                ", uloga=" + uloga +
                 '}';
     }
 
