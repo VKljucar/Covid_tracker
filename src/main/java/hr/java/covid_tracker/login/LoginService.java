@@ -1,6 +1,6 @@
-package hr.java.covid_tracker.service;
+package hr.java.covid_tracker.login;
 
-import hr.java.covid_tracker.model.LoginDTO;
+import hr.java.covid_tracker.login.LoginDTO;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package hr.java.covid_tracker.model;
+package hr.java.covid_tracker.login;
 
 public class LoginDTO {
 
