@@ -4,27 +4,29 @@ import javax.validation.constraints.*;
 
 public class NovozarazeniCommand {
 
-    @NotNull(message = "Ime ne smije biti prazno")
+    @NotBlank(message = "Ime ne smije biti prazno")
     private String ime;
 
-    @NotNull(message = "Ime ne smije biti prazno")
+    @NotBlank(message = "Prezime ne smije biti prazno")
     private String prezime;
 
-    @NotNull(message = "Ime ne smije biti prazno")
+    @NotNull(message = "Datum rodenja ne smije biti prazno")
     private String datRodenja;
 
-    @NotNull(message = "Ime ne smije biti prazno")
+    @NotBlank(message = "Adresa ne smije biti prazno")
     private String adresa;
 
-    @NotNull(message = "Ime ne smije biti prazno")
+    @NotNull(message = "Telefon ne smije biti prazno")
     private String telefon;
 
-    @NotNull(message = "Ime ne smije biti prazno")
+    @NotBlank(message = "Email ne smije biti prazno")
     private String email;
 
     private String hospitalizirani;
-    private Long lokacija;
-    private Long osobaId;
+    private int lokacija;
+
+    @NotNull(message = "Osoba ne smije biti prazno")
+    private int osobaId;
 
     public String getIme() {
         return ime;
@@ -54,11 +56,11 @@ public class NovozarazeniCommand {
         return hospitalizirani;
     }
 
-    public Long getLokacija() {
+    public int getLokacija() {
         return lokacija;
     }
 
-    public Long getOsobaId() {
+    public int getOsobaId() {
         return osobaId;
     }
 }

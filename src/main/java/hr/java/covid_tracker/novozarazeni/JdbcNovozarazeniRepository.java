@@ -54,16 +54,53 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
         try {
             novozarazeni.setOboljeliId(saveNovozarazeni(novozarazeni));
             return Optional.of(novozarazeni);
-        }catch (DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
             return Optional.empty();
         }
+    }
+
+    @Override
+    public Optional<Novozarazeni> update(int id, Novozarazeni updateNovozarazeni) {
+        int executed = jdbcTemplate.update("UPDATE novozarazeni SET" +
+                        "osoba_id = ?, " +
+                        "ime = ?, " +
+                        "prezime = ?, " +
+                        "dat_rodenja = ?, " +
+                        "adresa = ?, " +
+                        "telefon = ?, " +
+                        "email = ?, " +
+                        "hospitaliziran = ?, " +
+                        "lokacija = ?, " +
+                        "WHERE oboljeli_id = ?",
+                        updateNovozarazeni.getOsobaId(),
+                        updateNovozarazeni.getIme(),
+                        updateNovozarazeni.getPrezime(),
+                        updateNovozarazeni.getDatRodenja(),
+                        updateNovozarazeni.getAdresa(),
+                        updateNovozarazeni.getTelefon(),
+                        updateNovozarazeni.getEmail(),
+                        updateNovozarazeni.getHospitaliziran(),
+                        updateNovozarazeni.getLokacija()
+        );
+
+        if(executed > 0){
+            return Optional.of(updateNovozarazeni);
+        } else {
+            return Optional.empty();
+        }
+
+    }
+
+    @Override
+    public void deleteById(int id) {
+        jdbcTemplate.update("DELETE FROM oboljeli WHERE oboljeli_id = ?", id);
     }
 
 
     private Novozarazeni mapRowToNovozarazeni(ResultSet rs, int rowNum) throws SQLException {
         return new Novozarazeni(
-                rs.getLong("oboljeli_id"),
-                rs.getLong("osoba_id"),
+                rs.getInt("oboljeli_id"),
+                rs.getInt("osoba_id"),
                 rs.getString("ime"),
                 rs.getString("prezime"),
                 rs.getString("dat_rodenja"),
@@ -71,11 +108,11 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
                 rs.getString("telefon"),
                 rs.getString("email"),
                 rs.getString("hospitaliziran"),
-                rs.getLong("lokacija")
+                rs.getInt("lokacija")
         );
     }
 
-    private long saveNovozarazeni(Novozarazeni novozarazeni) {
+    private int saveNovozarazeni(Novozarazeni novozarazeni) {
         Map<String, Object> values = new HashMap<>();
 
         values.put("osoba_id", novozarazeni.getOsobaId());
@@ -88,6 +125,6 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
         values.put("hospitaliziran", novozarazeni.getHospitaliziran());
         values.put("lokacija", novozarazeni.getLokacija());
 
-        return simpleJdbcInsert.executeAndReturnKey(values).longValue();
+        return simpleJdbcInsert.executeAndReturnKey(values).intValue();
     }
 }

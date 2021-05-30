@@ -2,12 +2,17 @@ package hr.java.covid_tracker.novozarazeni;
 
 import hr.java.covid_tracker.login.Login;
 
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Novozarazeni {
 
-    private Long oboljeliId;
-    private Long osobaId;
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private int oboljeliId;
+    private int osobaId;
     private String ime;
     private String prezime;
     private String datRodenja;
@@ -15,11 +20,21 @@ public class Novozarazeni {
     private String telefon;
     private String email;
     private String hospitaliziran;
-    private Long lokacija;
+    private int lokacija;
 
-    private Login login;
 
-    public Novozarazeni(Long oboljeliId, Long osobaId, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, String hospitaliziran, Long lokacija) {
+    @ManyToMany(targetEntity = Login.class)
+    @JoinTable(
+            name = "korisnici",
+            joinColumns = {@JoinColumn(name = "osoba_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id")}
+    )
+    private List<Login> login;
+
+    public Novozarazeni() {
+    }
+
+    public Novozarazeni(int oboljeliId, int osobaId, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, String hospitaliziran, int lokacija) {
         this.oboljeliId = oboljeliId;
         this.osobaId = osobaId;
         this.ime = ime;
@@ -44,84 +59,48 @@ public class Novozarazeni {
         this.lokacija = novozarazeniCommand.getLokacija();
     }
 
-    public Long getOboljeliId() {
+    public int getOboljeliId() {
         return oboljeliId;
     }
 
-    public void setOboljeliId(Long oboljeliId) {
+    public void setOboljeliId(int oboljeliId) {
         this.oboljeliId = oboljeliId;
     }
 
-    public Long getOsobaId() {
+    public int getOsobaId() {
         return osobaId;
-    }
-
-    public void setOsobaId(Long osobaId) {
-        this.osobaId = osobaId;
     }
 
     public String getIme() {
         return ime;
     }
 
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
     public String getPrezime() {
         return prezime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
     }
 
     public String getDatRodenja() {
         return datRodenja;
     }
 
-    public void setDatRodenja(String datRodenja) {
-        this.datRodenja = datRodenja;
-    }
-
     public String getAdresa() {
         return adresa;
-    }
-
-    public void setAdresa(String adresa) {
-        this.adresa = adresa;
     }
 
     public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getHospitaliziran() {
         return hospitaliziran;
     }
 
-    public void setHospitaliziran(String hospitaliziran) {
-        this.hospitaliziran = hospitaliziran;
-    }
-
-    public Long getLokacija() {
+    public int getLokacija() {
         return lokacija;
-    }
-
-    public void setLokacija(Long lokacija) {
-        this.lokacija = lokacija;
     }
 
     @Override
@@ -129,7 +108,7 @@ public class Novozarazeni {
         if (this == o) return true;
         if (!(o instanceof Novozarazeni)) return false;
         Novozarazeni that = (Novozarazeni) o;
-        return oboljeliId.equals(that.oboljeliId) && osobaId.equals(that.osobaId) && ime.equals(that.ime) && prezime.equals(that.prezime) && datRodenja.equals(that.datRodenja) && adresa.equals(that.adresa) && telefon.equals(that.telefon) && email.equals(that.email) && hospitaliziran.equals(that.hospitaliziran) && lokacija.equals(that.lokacija);
+        return ime.equals(that.ime) && prezime.equals(that.prezime) && datRodenja.equals(that.datRodenja) && adresa.equals(that.adresa) && telefon.equals(that.telefon) && email.equals(that.email) && hospitaliziran.equals(that.hospitaliziran);
     }
 
     @Override

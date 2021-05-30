@@ -11,4 +11,8 @@ public interface NovozarazeniService {
 
     Optional<NovozarazeniDTO> save(NovozarazeniCommand novozarazeniCommand);
 
+    Optional<NovozarazeniDTO> update(int id);
+
+    void deleteById(int id);
+
 }

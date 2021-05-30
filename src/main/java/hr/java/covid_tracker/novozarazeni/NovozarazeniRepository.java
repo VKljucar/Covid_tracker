@@ -11,5 +11,8 @@ public interface NovozarazeniRepository {
 
     Optional<Novozarazeni> save(Novozarazeni novozarazeni);
 
+    Optional<Novozarazeni> update(int id, Novozarazeni updateNovozarazeni);
+
+    void deleteById(int id);
 
 }

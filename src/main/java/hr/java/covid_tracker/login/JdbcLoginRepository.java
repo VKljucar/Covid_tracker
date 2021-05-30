@@ -48,7 +48,7 @@ public class JdbcLoginRepository implements LoginRepository {
 
     private Login mapRowToLogin(ResultSet rs, int rownum) throws SQLException {
         return new Login(
-                rs.getLong("ID"),
+                rs.getInt("ID"),
                 rs.getString("IME"),
                 rs.getString("PREZIME"),
                 rs.getString("KORISNICKO_IME"),

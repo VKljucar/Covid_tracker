@@ -1,17 +1,31 @@
 package hr.java.covid_tracker.login;
+import hr.java.covid_tracker.novozarazeni.Novozarazeni;
 
+import javax.persistence.*;
+
+import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Login {
 
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private String ime;
     private String prezime;
     private String korisnickoIme;
     private String lozinka;
     private Type uloga;
 
-    public Login(Long id, String ime, String prezime, String korisnickoIme, String lozinka, Type uloga) {
+    @ManyToMany(targetEntity = Novozarazeni.class, mappedBy = "login")
+    private List<Novozarazeni> novozarazeni;
+
+    public Login() {
+    }
+
+    public Login(int id, String ime, String prezime, String korisnickoIme, String lozinka, Type uloga) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
@@ -20,11 +34,11 @@ public class Login {
         this.uloga = uloga;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,11 +67,11 @@ public class Login {
         if (this == o) return true;
         if (!(o instanceof Login)) return false;
         Login login = (Login) o;
-        return id.equals(login.id) && ime.equals(login.ime) && prezime.equals(login.prezime) && korisnickoIme.equals(login.korisnickoIme) && lozinka.equals(login.lozinka) && uloga.equals(login.uloga);
+        return korisnickoIme.equals(login.korisnickoIme);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, ime, prezime, korisnickoIme, lozinka, uloga);
+        return Objects.hash(korisnickoIme);
     }
 }

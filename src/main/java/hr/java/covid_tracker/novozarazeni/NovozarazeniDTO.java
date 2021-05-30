@@ -9,7 +9,7 @@ public class NovozarazeniDTO {
     private String telefon;
     private String email;
     private String hospitaliziran;
-    private Long lokacija;
+    private int lokacija;
 
     public NovozarazeniDTO(Novozarazeni novozarazeni) {
         this.ime = novozarazeni.getIme();
@@ -50,7 +50,7 @@ public class NovozarazeniDTO {
         return hospitaliziran;
     }
 
-    public Long getLokacija() {
+    public int getLokacija() {
         return lokacija;
     }
 
