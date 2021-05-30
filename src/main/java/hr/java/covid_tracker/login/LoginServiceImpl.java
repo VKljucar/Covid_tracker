@@ -1,7 +1,5 @@
-package hr.java.covid_tracker.service;
+package hr.java.covid_tracker.login;
 
-import hr.java.covid_tracker.model.LoginDTO;
-import hr.java.covid_tracker.repository.LoginRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

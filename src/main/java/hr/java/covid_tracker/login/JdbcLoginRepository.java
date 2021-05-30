@@ -1,7 +1,5 @@
-package hr.java.covid_tracker.repository;
+package hr.java.covid_tracker.login;
 
-import hr.java.covid_tracker.model.Login;
-import hr.java.covid_tracker.model.Type;
 import org.springframework.context.annotation.Primary;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -50,7 +48,7 @@ public class JdbcLoginRepository implements LoginRepository {
 
     private Login mapRowToLogin(ResultSet rs, int rownum) throws SQLException {
         return new Login(
-                rs.getLong("ID"),
+                rs.getInt("ID"),
                 rs.getString("IME"),
                 rs.getString("PREZIME"),
                 rs.getString("KORISNICKO_IME"),
