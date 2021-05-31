@@ -31,4 +31,14 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
                 .save(new Novozarazeni(novozarazeniCommand))
                 .map(NovozarazeniDTO::new);
     }
+
+    @Override
+    public Optional<NovozarazeniDTO> update(int id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+    }
 }
