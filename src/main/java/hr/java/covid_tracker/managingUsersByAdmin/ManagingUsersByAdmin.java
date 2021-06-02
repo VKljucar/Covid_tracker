@@ -1,19 +1,33 @@
 package hr.java.covid_tracker.managingUsersByAdmin;
 
+import hr.java.covid_tracker.login.Login;
 import hr.java.covid_tracker.login.Type;
 
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 public class ManagingUsersByAdmin {
 
-        private Long id;
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private int id;
         private String firstname;
         private String lastname;
         private String username;
         private String password;
         private Type role;
 
-        public ManagingUsersByAdmin(Long id, String firstname, String lastname, String username, String password, Type role) {
+        @ManyToMany(targetEntity = ManagingUsersByAdmin.class)
+        @JoinTable(
+                name = "korisnici",
+                joinColumns = { @JoinColumn(name = "id")},
+                inverseJoinColumns = {@JoinColumn(name = "id")}
+        )
+
+        private List<ManagingUsersByAdmin> managingUsersByAdminList;
+
+        public ManagingUsersByAdmin(int id, String firstname, String lastname, String username, String password, Type role) {
             this.id = id;
             this.firstname = firstname;
             this.lastname = lastname;
@@ -23,7 +37,7 @@ public class ManagingUsersByAdmin {
         }
 
         public ManagingUsersByAdmin(ManagingUsersByAdminCommand managingUsersByAdminCommand) {
-        this.id = managingUsersByAdminCommand.getId();
+
         this.firstname = managingUsersByAdminCommand.getFirstName();
         this.lastname = managingUsersByAdminCommand.getLastName();
         this.username = managingUsersByAdminCommand.getUsername();
@@ -31,11 +45,11 @@ public class ManagingUsersByAdmin {
         this.role = managingUsersByAdminCommand.getRole();
         }
 
-        public Long getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(Long id) {
+        public void setId(int id) {
             this.id = id;
         }
 
@@ -64,7 +78,7 @@ public class ManagingUsersByAdmin {
             if (this == o) return true;
             if (!(o instanceof ManagingUsersByAdmin)) return false;
             ManagingUsersByAdmin ManagingUsersByAdmin = (hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin) o;
-            return id.equals(ManagingUsersByAdmin.id) && firstname.equals(ManagingUsersByAdmin.firstname) && lastname.equals(ManagingUsersByAdmin.lastname) && username.equals(ManagingUsersByAdmin.username) && password.equals(ManagingUsersByAdmin.password) && role.equals(ManagingUsersByAdmin.role);
+            return firstname.equals(ManagingUsersByAdmin.firstname) && lastname.equals(ManagingUsersByAdmin.lastname) && username.equals(ManagingUsersByAdmin.username) && password.equals(ManagingUsersByAdmin.password) && role.equals(ManagingUsersByAdmin.role);
         }
 
         @Override

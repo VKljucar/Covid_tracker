@@ -60,7 +60,7 @@ public class JdbcManagingUsersByAdminRepository implements ManagingUsersByAdminR
 
     private ManagingUsersByAdmin mapRowToManagingUsersByAdmin(ResultSet rs, int rowNum) throws SQLException { //promjeni prema tablici
         return new ManagingUsersByAdmin(
-                rs.getLong("ID"),
+                rs.getInt("ID"),
                 rs.getString("IME"),
                 rs.getString("PREZIME"),
                 rs.getString("KORISNICKO_IME"),
@@ -69,7 +69,7 @@ public class JdbcManagingUsersByAdminRepository implements ManagingUsersByAdminR
         );
     }
 
-    private long saveManagingUsersByAdminDetails(ManagingUsersByAdmin managingUsersByAdmin) {
+    private int saveManagingUsersByAdminDetails(ManagingUsersByAdmin managingUsersByAdmin) {
 
         Map<String, Object> values = new HashMap<>();
 
@@ -80,7 +80,7 @@ public class JdbcManagingUsersByAdminRepository implements ManagingUsersByAdminR
         values.put("LOZINKA", managingUsersByAdmin.getPassword());
         values.put("ULOGA", managingUsersByAdmin.getRole());
 
-        return simpleJdbcInsert.executeAndReturnKey(values).longValue();
+        return simpleJdbcInsert.executeAndReturnKey(values).intValue();
 
     }
 

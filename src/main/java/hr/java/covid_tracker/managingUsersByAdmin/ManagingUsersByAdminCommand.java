@@ -3,11 +3,12 @@ package hr.java.covid_tracker.managingUsersByAdmin;
 import hr.java.covid_tracker.login.Type;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ManagingUsersByAdminCommand {
 
-    @NotBlank(message = "ID must not be empty")
-    private Long id;
+    @NotNull(message = "ID must not be empty")
+    private int id;
 
     @NotBlank(message = "First name must not be empty")
     private String firstName;
@@ -21,10 +22,10 @@ public class ManagingUsersByAdminCommand {
     @NotBlank(message = "Password must not be empty")
     private String password;
 
-    @NotBlank(message = "Role must not be empty")
+    @NotNull(message = "Role must not be empty")
     private Type role;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
