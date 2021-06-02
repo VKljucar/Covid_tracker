@@ -73,12 +73,12 @@ public class JdbcManagingUsersByAdminRepository implements ManagingUsersByAdminR
 
         Map<String, Object> values = new HashMap<>();
 
-        values.put("ID", managingUsersByAdmin.getId());
-        values.put("IME", managingUsersByAdmin.getFirstname());
-        values.put("PREZIME", managingUsersByAdmin.getLastname());
-        values.put("KORISNICKO_IME", managingUsersByAdmin.getUsername());
-        values.put("LOZINKA", managingUsersByAdmin.getPassword());
-        values.put("ULOGA", managingUsersByAdmin.getRole());
+        values.put("id", managingUsersByAdmin.getId());
+        values.put("ime", managingUsersByAdmin.getFirstname());
+        values.put("prezime", managingUsersByAdmin.getLastname());
+        values.put("korisnicko_ime", managingUsersByAdmin.getUsername());
+        values.put("lozinka", managingUsersByAdmin.getPassword());
+        values.put("uloga", managingUsersByAdmin.getRole());
 
         return simpleJdbcInsert.executeAndReturnKey(values).intValue();
 

@@ -28,8 +28,8 @@ public class ManagingUsersByAdminController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{researchName}")
-    public void delete(@PathVariable final String id) {
-        managingUsersByAdminService.deleteByResearchName(id);
+    public void delete(@PathVariable final String researchName) {
+        managingUsersByAdminService.deleteByResearchName(researchName);
     }
 
 
