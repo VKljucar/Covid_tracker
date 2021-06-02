@@ -33,12 +33,20 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
     }
 
     @Override
-    public Optional<NovozarazeniDTO> update(int id) {
-        return Optional.empty();
+    public Optional<NovozarazeniDTO> update(int id, NovozarazeniCommand novozarazeniCommand) {
+        return novozarazeniRepository.update(id, mapToNovozarazeni(novozarazeniCommand)).map(this::mapNovozarazeniToDTO);
     }
 
     @Override
     public void deleteById(int id) {
+        novozarazeniRepository.deleteById(id);
+    }
 
+    private Novozarazeni mapToNovozarazeni(final NovozarazeniCommand novozarazeniCommand){
+        return new Novozarazeni(novozarazeniCommand);
+    }
+
+    private NovozarazeniDTO mapNovozarazeniToDTO(final Novozarazeni novozarazeni){
+        return new NovozarazeniDTO(novozarazeni);
     }
 }

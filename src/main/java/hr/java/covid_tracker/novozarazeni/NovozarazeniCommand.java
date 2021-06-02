@@ -22,7 +22,7 @@ public class NovozarazeniCommand {
     @NotBlank(message = "Email ne smije biti prazno")
     private String email;
 
-    private String hospitalizirani;
+    private String hospitaliziran;
     private int lokacija;
 
     @NotNull(message = "Osoba ne smije biti prazno")
@@ -52,8 +52,8 @@ public class NovozarazeniCommand {
         return email;
     }
 
-    public String getHospitalizirani() {
-        return hospitalizirani;
+    public String getHospitaliziran() {
+        return hospitaliziran;
     }
 
     public int getLokacija() {

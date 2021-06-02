@@ -29,4 +29,10 @@ public class NozarazeniUpisController {
                 );
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id){
+        novozarazeniService.deleteById(id);
+    }
+
 }

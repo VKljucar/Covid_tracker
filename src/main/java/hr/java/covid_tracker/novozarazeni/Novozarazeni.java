@@ -55,7 +55,7 @@ public class Novozarazeni {
         this.adresa = novozarazeniCommand.getAdresa();
         this.telefon = novozarazeniCommand.getTelefon();
         this.email = novozarazeniCommand.getEmail();
-        this.hospitaliziran = novozarazeniCommand.getHospitalizirani();
+        this.hospitaliziran = novozarazeniCommand.getHospitaliziran();
         this.lokacija = novozarazeniCommand.getLokacija();
     }
 
@@ -108,11 +108,11 @@ public class Novozarazeni {
         if (this == o) return true;
         if (!(o instanceof Novozarazeni)) return false;
         Novozarazeni that = (Novozarazeni) o;
-        return ime.equals(that.ime) && prezime.equals(that.prezime) && datRodenja.equals(that.datRodenja) && adresa.equals(that.adresa) && telefon.equals(that.telefon) && email.equals(that.email) && hospitaliziran.equals(that.hospitaliziran);
+        return ime.equals(that.ime) && prezime.equals(that.prezime) && datRodenja.equals(that.datRodenja) && adresa.equals(that.adresa) && telefon.equals(that.telefon) && email.equals(that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(oboljeliId, osobaId, ime, prezime, datRodenja, adresa, telefon, email, hospitaliziran, lokacija);
+        return Objects.hash(oboljeliId, osobaId, ime, prezime, datRodenja, adresa, telefon, email);
     }
 }
