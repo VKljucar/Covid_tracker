@@ -7,15 +7,23 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "OBOLJELI")
 public class Novozarazeni {
 
     @Id
+    @Column(name = "OBOLJELI_ID")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int oboljeliId;
+
+    @Column(name = "OSOBA_ID")
     private int osobaId;
+
     private String ime;
     private String prezime;
+
+    @Column(name = "DAT_RODENJA")
     private String datRodenja;
+
     private String adresa;
     private String telefon;
     private String email;
@@ -115,4 +123,5 @@ public class Novozarazeni {
     public int hashCode() {
         return Objects.hash(oboljeliId, osobaId, ime, prezime, datRodenja, adresa, telefon, email);
     }
+
 }

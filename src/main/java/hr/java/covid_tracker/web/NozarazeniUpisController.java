@@ -1,8 +1,6 @@
 package hr.java.covid_tracker.web;
 
-import hr.java.covid_tracker.novozarazeni.NovozarazeniCommand;
-import hr.java.covid_tracker.novozarazeni.NovozarazeniDTO;
-import hr.java.covid_tracker.novozarazeni.NovozarazeniService;
+import hr.java.covid_tracker.novozarazeni.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,9 +13,11 @@ import javax.validation.Valid;
 public class NozarazeniUpisController {
 
     private final NovozarazeniService novozarazeniService;
+    private final NovozarazeniJpaRepository novozarazeniJpaRepository;
 
-    public NozarazeniUpisController(NovozarazeniService novozarazeniService) {
+    public NozarazeniUpisController(NovozarazeniService novozarazeniService, NovozarazeniJpaRepository novozarazeniJpaRepository) {
         this.novozarazeniService = novozarazeniService;
+        this.novozarazeniJpaRepository = novozarazeniJpaRepository;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
