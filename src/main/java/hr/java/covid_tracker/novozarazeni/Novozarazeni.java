@@ -30,14 +30,9 @@ public class Novozarazeni {
     private String hospitaliziran;
     private int lokacija;
 
-
-    @ManyToMany(targetEntity = Login.class)
-    @JoinTable(
-            name = "korisnici",
-            joinColumns = {@JoinColumn(name = "osoba_id")},
-            inverseJoinColumns = {@JoinColumn(name = "id")}
-    )
-    private List<Login> login;
+    @ManyToOne
+    @JoinColumn(name = "osoba_id", insertable = false, updatable = false)
+    private Login login;
 
     public Novozarazeni() {
     }

@@ -40,7 +40,7 @@ public class LoginController {
     }*/
 
     @GetMapping("{username}")
-    public List<String> getUserByUsername(@PathVariable final String username){
+    public List<Login> getUserByUsername(@PathVariable final String username){
         return loginJpaRepository.findAllByKorisnickoIme(username);
     }
 

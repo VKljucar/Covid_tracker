@@ -30,9 +30,9 @@ public class NozarazeniUpisController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id){
-        novozarazeniService.deleteById(id);
+    @DeleteMapping("/{oboljeli_id}")
+    public void delete(@PathVariable final int oboljeli_id){
+        novozarazeniJpaRepository.deleteByOboljeliId(oboljeli_id);
     }
 
 }

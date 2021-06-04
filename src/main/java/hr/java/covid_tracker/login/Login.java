@@ -1,5 +1,7 @@
 package hr.java.covid_tracker.login;
 import hr.java.covid_tracker.novozarazeni.Novozarazeni;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -25,7 +27,7 @@ public class Login {
     @Enumerated(EnumType.STRING)
     private Type uloga;
 
-    @ManyToMany(targetEntity = Novozarazeni.class, mappedBy = "login")
+    @OneToMany(mappedBy = "login")
     private List<Novozarazeni> novozarazeni;
 
     public Login() {
