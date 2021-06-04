@@ -61,7 +61,7 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
 
     @Override
     public Optional<Novozarazeni> update(int id, Novozarazeni updateNovozarazeni) {
-        int executed = jdbcTemplate.update("UPDATE novozarazeni SET" +
+        int executed = jdbcTemplate.update("UPDATE OBOLJELI SET " +
                         "osoba_id = ?, " +
                         "ime = ?, " +
                         "prezime = ?, " +
@@ -70,7 +70,7 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
                         "telefon = ?, " +
                         "email = ?, " +
                         "hospitaliziran = ?, " +
-                        "lokacija = ?, " +
+                        "lokacija = ? " +
                         "WHERE oboljeli_id = ?",
                         updateNovozarazeni.getOsobaId(),
                         updateNovozarazeni.getIme(),
@@ -80,7 +80,8 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
                         updateNovozarazeni.getTelefon(),
                         updateNovozarazeni.getEmail(),
                         updateNovozarazeni.getHospitaliziran(),
-                        updateNovozarazeni.getLokacija()
+                        updateNovozarazeni.getLokacija(),
+                        updateNovozarazeni.getOboljeliId()
         );
 
         if(executed > 0){
@@ -99,7 +100,6 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
 
     private Novozarazeni mapRowToNovozarazeni(ResultSet rs, int rowNum) throws SQLException {
         return new Novozarazeni(
-                rs.getInt("oboljeli_id"),
                 rs.getInt("osoba_id"),
                 rs.getString("ime"),
                 rs.getString("prezime"),

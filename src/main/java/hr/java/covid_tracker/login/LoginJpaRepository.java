@@ -15,6 +15,6 @@ public interface LoginJpaRepository extends JpaRepository<Login, Integer> {
     @Query("SELECT p FROM Login p WHERE UPPER(p.korisnickoIme) = UPPER(:korisnickoIme)")
     List<Login> findAllByKorisnickoIme(@Param("korisnickoIme") String korisnickoIme);
 
-//    List<Login> findAllByKorisnickoIme(String korisnickoIme);
+    List<Login> findByKorisnickoImeAndLozinka(String korisnicko_ime, String lozinka);
 
 }

@@ -37,8 +37,7 @@ public class Novozarazeni {
     public Novozarazeni() {
     }
 
-    public Novozarazeni(int oboljeliId, int osobaId, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, String hospitaliziran, int lokacija) {
-        this.oboljeliId = oboljeliId;
+    public Novozarazeni( int osobaId, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, String hospitaliziran, int lokacija) {
         this.osobaId = osobaId;
         this.ime = ime;
         this.prezime = prezime;

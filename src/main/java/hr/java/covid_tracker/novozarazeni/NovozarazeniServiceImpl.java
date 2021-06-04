@@ -33,7 +33,7 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
     }
 
     @Override
-    public Optional<NovozarazeniDTO> update(int id, NovozarazeniCommand novozarazeniCommand) {
+    public Optional<NovozarazeniDTO> update(final int id, final NovozarazeniCommand novozarazeniCommand) {
         return novozarazeniRepository.update(id, mapToNovozarazeni(novozarazeniCommand)).map(this::mapNovozarazeniToDTO);
     }
 
@@ -43,7 +43,7 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
     }
 
     private Novozarazeni mapToNovozarazeni(final NovozarazeniCommand novozarazeniCommand){
-        return new Novozarazeni(novozarazeniCommand);
+        return new Novozarazeni(novozarazeniCommand.getOsobaId(),novozarazeniCommand.getIme(),novozarazeniCommand.getPrezime(),novozarazeniCommand.getDatRodenja(),novozarazeniCommand.getAdresa(),novozarazeniCommand.getTelefon(),novozarazeniCommand.getEmail(),novozarazeniCommand.getHospitaliziran(),novozarazeniCommand.getLokacija());
     }
 
     private NovozarazeniDTO mapNovozarazeniToDTO(final Novozarazeni novozarazeni){
