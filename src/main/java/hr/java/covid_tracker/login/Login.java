@@ -1,5 +1,7 @@
 package hr.java.covid_tracker.login;
 import hr.java.covid_tracker.novozarazeni.Novozarazeni;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -7,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "KORISNICI")
 public class Login {
 
     @Id
@@ -15,11 +18,16 @@ public class Login {
 
     private String ime;
     private String prezime;
+
+    @Column(name = "KORISNICKO_IME")
     private String korisnickoIme;
+
     private String lozinka;
+
+    @Enumerated(EnumType.STRING)
     private Type uloga;
 
-    @ManyToMany(targetEntity = Novozarazeni.class, mappedBy = "login")
+    @OneToMany(mappedBy = "login")
     private List<Novozarazeni> novozarazeni;
 
     public Login() {

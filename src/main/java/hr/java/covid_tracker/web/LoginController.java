@@ -1,8 +1,6 @@
 package hr.java.covid_tracker.web;
 
-import hr.java.covid_tracker.login.LoginDTO;
-import hr.java.covid_tracker.login.LoginService;
-import hr.java.covid_tracker.login.LoginServiceImpl;
+import hr.java.covid_tracker.login.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,22 +13,35 @@ import java.util.List;
 public class LoginController {
 
     private final LoginService loginService;
+    private final LoginJpaRepository loginJpaRepository;
 
-    public LoginController(LoginServiceImpl loginService) {
+    public LoginController(LoginServiceImpl loginService, LoginJpaRepository loginJpaRepository) {
         this.loginService = loginService;
+        this.loginJpaRepository = loginJpaRepository;
     }
-
+    /*
     @GetMapping
     public List<LoginDTO> getAllUsers(){
         return loginService.findAll();
+    }*/
+
+    @GetMapping
+    public List<Login> getAllUsers(){
+        return loginJpaRepository.findAll();
     }
 
+    /*
     @GetMapping("{username}")
     public LoginDTO getUserByUsername(@PathVariable final String username){
         return loginService.findByUsername(username)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ne postoji korisnik za taj username")
                 );
+    }*/
+
+    @GetMapping("{username}")
+    public List<Login> getUserByUsername(@PathVariable final String username){
+        return loginJpaRepository.findAllByKorisnickoIme(username);
     }
 
 }

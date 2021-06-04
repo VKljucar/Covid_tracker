@@ -23,6 +23,7 @@ public class NovozarazeniCommand {
     private String email;
 
     private String hospitaliziran;
+
     private int lokacija;
 
     @NotNull(message = "Osoba ne smije biti prazno")
