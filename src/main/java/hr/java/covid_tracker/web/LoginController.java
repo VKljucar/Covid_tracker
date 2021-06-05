@@ -1,7 +1,6 @@
 package hr.java.covid_tracker.web;
 
 import hr.java.covid_tracker.login.*;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
