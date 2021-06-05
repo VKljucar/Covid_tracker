@@ -29,9 +29,15 @@ public class CijepljeniPregledController {
         return cijepljeniJpaRepository.findAll();
     }
 
-    @GetMapping("/{ime},{prezime},{cijepivo_id}")
-    public List<Cijepljeni> getUserByUsername(@PathVariable String ime, @PathVariable String prezime, @PathVariable int cijepivo_id) {
-        return cijepljeniJpaRepository.findAllByParameters(ime, prezime, cijepivo_id);
+//    @GetMapping("/{ime},{prezime},{cijepivo_id}")
+//    public List<Cijepljeni> getUserByUsername(@PathVariable String ime, @PathVariable String prezime, @PathVariable int cijepivo_id) {
+//        return cijepljeniJpaRepository.findAllByParameters(ime, prezime, cijepivo_id);
+//    }
+    @GetMapping("/{ime}")
+    public List<Cijepljeni> getByParam(@PathVariable String ime){
+
+        return cijepljeniJpaRepository.findAllByIme(ime);
+
     }
 
 }

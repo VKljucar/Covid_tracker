@@ -1,6 +1,7 @@
 package hr.java.covid_tracker.cijepljeni;
 
 import hr.java.covid_tracker.login.Login;
+import hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,34 +9,45 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "CIJEPLJENI")
 public class Cijepljeni {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(name = "CIJEPLJENI_ID")
     private int cijepljeniID;
 
-    @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(name = "OSOBA_ID")
     private int osobaID;
 
     private String ime;
     private String prezime;
+
+    @Column(name = "DATUM_RODENJA")
     private String datRodenja;
+
     private String adresa;
     private String telefon;
     private String email;
+
+    @Column(name = "DATUM_CIJEPLJENJA")
     private Date datumCijepljenja;
+
+    @Column(name = "CIJEPIVO_ID")
     private int cijepivoID;
 
+    @ManyToOne
+    @JoinColumn(name = "osoba_id" , insertable = false, updatable = false)
+    private ManagingUsersByAdmin managingUsersByAdmin;
 
-    @ManyToMany(targetEntity = Cijepljeni.class)
-    @JoinTable(
-            name = "cijepljeni",
-            joinColumns = {@JoinColumn(name = "osoba_id")},
-            inverseJoinColumns = {@JoinColumn(name = "osobaID")}
-    )
+//    @OneToMany(targetEntity = Cijepljeni.class)
+//    @JoinTable(
+//            name = "cijepljeni",
+//            joinColumns = {@JoinColumn(name = "osoba_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "osobaID")}
+//    )
 
-    private List<Cijepljeni> cijepljeni;
+    //private List<Cijepljeni> cijepljeni;
 
     public Cijepljeni() {
     }
@@ -112,16 +124,16 @@ public class Cijepljeni {
         return cijepivoID;
     }
 
-    public List<Cijepljeni> getCijepljeni() {
-        return cijepljeni;
-    }
+//    public List<Cijepljeni> getCijepljeni() {
+//        return cijepljeni;
+//    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Cijepljeni)) return false;
         Cijepljeni that = (Cijepljeni) o;
-        return getCijepljeniID() == that.getCijepljeniID() && getOsobaID() == that.getOsobaID() && getCijepivoID() == that.getCijepivoID() && Objects.equals(getIme(), that.getIme()) && Objects.equals(getPrezime(), that.getPrezime()) && Objects.equals(getDatRodenja(), that.getDatRodenja()) && Objects.equals(getAdresa(), that.getAdresa()) && Objects.equals(getTelefon(), that.getTelefon()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getDatumCijepljenja(), that.getDatumCijepljenja()) && Objects.equals(getCijepljeni(), that.getCijepljeni());
+        return getCijepljeniID() == that.getCijepljeniID() && getOsobaID() == that.getOsobaID() && getCijepivoID() == that.getCijepivoID() && Objects.equals(getIme(), that.getIme()) && Objects.equals(getPrezime(), that.getPrezime()) && Objects.equals(getDatRodenja(), that.getDatRodenja()) && Objects.equals(getAdresa(), that.getAdresa()) && Objects.equals(getTelefon(), that.getTelefon()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getDatumCijepljenja(), that.getDatumCijepljenja());
     }
 
     @Override

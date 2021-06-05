@@ -1,5 +1,6 @@
 package hr.java.covid_tracker.managingUsersByAdmin;
 
+import hr.java.covid_tracker.cijepljeni.Cijepljeni;
 import hr.java.covid_tracker.login.Login;
 import hr.java.covid_tracker.login.Type;
 
@@ -7,25 +8,41 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "KORISNICI")
 public class ManagingUsersByAdmin {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private int id;
+
+        @Column(name = "IME")
         private String firstname;
+
+        @Column(name = "PREZIME")
         private String lastname;
+
+        @Column(name = "KORISNICKO_IME")
         private String username;
+
+        @Column(name = "LOZINKA")
         private String password;
+
+        @Column(name = "ULOGA")
+        @Enumerated(EnumType.STRING)
         private Type role;
 
-        @ManyToMany(targetEntity = ManagingUsersByAdmin.class)
-        @JoinTable(
-                name = "korisnici",
-                joinColumns = { @JoinColumn(name = "id")},
-                inverseJoinColumns = {@JoinColumn(name = "id")}
-        )
+        @OneToMany(mappedBy = "managingUsersByAdmin")
+        private List<Cijepljeni> cijepljeni;
 
-        private List<ManagingUsersByAdmin> managingUsersByAdminList;
+//        @ManyToMany(targetEntity = ManagingUsersByAdmin.class)
+//        @JoinTable(
+//                name = "korisnici",
+//                joinColumns = { @JoinColumn(name = "id")},
+//                inverseJoinColumns = {@JoinColumn(name = "id")}
+//        )
+
+        //private List<ManagingUsersByAdmin> managingUsersByAdminList;
 
         public ManagingUsersByAdmin(int id, String firstname, String lastname, String username, String password, Type role) {
             this.id = id;
