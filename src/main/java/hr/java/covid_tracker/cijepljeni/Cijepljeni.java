@@ -1,11 +1,9 @@
 package hr.java.covid_tracker.cijepljeni;
 
-import hr.java.covid_tracker.login.Login;
 import hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,7 +21,7 @@ public class Cijepljeni {
     private String ime;
     private String prezime;
 
-    @Column(name = "DATUM_RODENJA")
+    @Column(name = "DAT_RODENJA")
     private String datRodenja;
 
     private String adresa;

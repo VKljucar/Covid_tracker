@@ -1,7 +1,6 @@
 package hr.java.covid_tracker.managingUsersByAdmin;
 
 import hr.java.covid_tracker.cijepljeni.Cijepljeni;
-import hr.java.covid_tracker.login.Login;
 import hr.java.covid_tracker.login.Type;
 
 import javax.persistence.*;
@@ -62,7 +61,11 @@ public class ManagingUsersByAdmin {
         this.role = managingUsersByAdminCommand.getRole();
         }
 
-        public int getId() {
+    public ManagingUsersByAdmin() {
+
+    }
+
+    public int getId() {
             return id;
         }
 
