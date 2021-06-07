@@ -1,7 +1,5 @@
 package hr.java.covid_tracker.login;
 import hr.java.covid_tracker.novozarazeni.Novozarazeni;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 

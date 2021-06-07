@@ -19,29 +19,34 @@ public class LoginController {
         this.loginService = loginService;
         this.loginJpaRepository = loginJpaRepository;
     }
-    /*
-    @GetMapping
-    public List<LoginDTO> getAllUsers(){
+
+    @GetMapping("/ALL")
+    public List<LoginDTO> getAllUsersService(){
         return loginService.findAll();
-    }*/
+    }
 
     @GetMapping
     public List<Login> getAllUsers(){
         return loginJpaRepository.findAll();
     }
 
-    /*
-    @GetMapping("{username}")
-    public LoginDTO getUserByUsername(@PathVariable final String username){
+    @GetMapping("USER:{username}")
+    public LoginDTO getUserByUsernameService(@PathVariable final String username){
         return loginService.findByUsername(username)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ne postoji korisnik za taj username")
                 );
-    }*/
+    }
 
-    @GetMapping("{username}")
+    @GetMapping("/:{username}")
     public List<Login> getUserByUsername(@PathVariable final String username){
         return loginJpaRepository.findAllByKorisnickoIme(username);
     }
+
+    @GetMapping("/{username},{password}")
+    public List<Login> getUserByUsernameAndPassword(@PathVariable final String username, @PathVariable final String password){
+        return loginJpaRepository.findByKorisnickoImeAndLozinka(username, password);
+    }
+
 
 }

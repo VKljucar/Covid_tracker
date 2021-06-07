@@ -23,18 +23,18 @@ public class NovozarazeniPregledController {
         this.novozarazeniJpaRepository = novozarazeniJpaRepository;
     }
 
-//    @GetMapping
-//    public List<NovozarazeniDTO> getAllNovozarazeni() {
-//        return novozarazeniService.findAll();
-//    }
-//
-//    @GetMapping("{ime,prezime,hospitaliziran}")
-//    public NovozarazeniDTO getByParameters(@PathVariable final String ime, @PathVariable final String prezime, @PathVariable final String hospitaliziran) {
-//        return novozarazeniService.findByParameters(ime, prezime, hospitaliziran)
-//                .orElseThrow(
-//                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nije pronađena ni jedna osoba")
-//                );
-//    }
+    @GetMapping("{ALL}")
+    public List<NovozarazeniDTO> getAllNovozarazeniService() {
+        return novozarazeniService.findAll();
+    }
+
+    @GetMapping("/:{ime},{prezime},{hospitaliziran}")
+    public NovozarazeniDTO getByParameters(@PathVariable final String ime, @PathVariable final String prezime, @PathVariable final String hospitaliziran) {
+        return novozarazeniService.findByParameters(ime, prezime, hospitaliziran)
+                .orElseThrow(
+                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nije pronađena ni jedna osoba")
+                );
+    }
 
     @GetMapping
     public List<Novozarazeni> getAllNovozarazeni() {
@@ -42,7 +42,7 @@ public class NovozarazeniPregledController {
     }
 
     @GetMapping("/{ime},{prezime},{hospitaliziran}")
-    public List<Novozarazeni> getUserByUsername(@PathVariable String ime, @PathVariable String prezime, @PathVariable String hospitaliziran) {
+    public List<Novozarazeni> getUserByParameters(@PathVariable String ime, @PathVariable String prezime, @PathVariable String hospitaliziran) {
         return novozarazeniJpaRepository.findAllByParameters(ime, prezime, hospitaliziran);
     }
 

@@ -2,6 +2,7 @@ package hr.java.covid_tracker.web;
 
 import hr.java.covid_tracker.novozarazeni.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -26,6 +27,15 @@ public class NozarazeniUpisController {
         return novozarazeniService.save(novozarazeniCommand)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.CONFLICT, "Postoji osoba sa istim podacima")
+                );
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<NovozarazeniDTO> update(@PathVariable int id, @Valid @RequestBody final NovozarazeniCommand updateNovozarazeniCommand){
+        return novozarazeniService.update(id, updateNovozarazeniCommand)
+                .map(ResponseEntity::ok)
+                .orElseGet(
+                        () -> ResponseEntity.notFound().build()
                 );
     }
 
