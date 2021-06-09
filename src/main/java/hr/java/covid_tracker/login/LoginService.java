@@ -7,6 +7,6 @@ public interface LoginService {
 
     List<LoginDTO> findAll();
 
-    Optional<LoginDTO> findByUsername(String username);
+    Optional<LoginDTO> findUser(String korisnickoIme, String lozinka);
 
 }

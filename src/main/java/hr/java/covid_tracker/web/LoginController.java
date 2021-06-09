@@ -13,39 +13,23 @@ import java.util.List;
 public class LoginController {
 
     private final LoginService loginService;
-    private final LoginJpaRepository loginJpaRepository;
 
-    public LoginController(LoginServiceImpl loginService, LoginJpaRepository loginJpaRepository) {
+    public LoginController(LoginServiceImpl loginService) {
         this.loginService = loginService;
-        this.loginJpaRepository = loginJpaRepository;
-    }
-
-    @GetMapping("/ALL")
-    public List<LoginDTO> getAllUsersService(){
-        return loginService.findAll();
     }
 
     @GetMapping
-    public List<Login> getAllUsers(){
-        return loginJpaRepository.findAll();
+    public List<LoginDTO> getAllUsers(){
+        return loginService.findAll();
     }
 
-    @GetMapping("USER:{username}")
-    public LoginDTO getUserByUsernameService(@PathVariable final String username){
-        return loginService.findByUsername(username)
+
+    @GetMapping("{korisnikoIme}/{lozinka}")
+    public LoginDTO getUser(@PathVariable final String korisnikoIme, @PathVariable final String lozinka){
+        return loginService.findUser(korisnikoIme, lozinka)
                 .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ne postoji korisnik za taj username")
+                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ne postoji korisnik sa tim podacima")
                 );
-    }
-
-    @GetMapping("/:{username}")
-    public List<Login> getUserByUsername(@PathVariable final String username){
-        return loginJpaRepository.findAllByKorisnickoIme(username);
-    }
-
-    @GetMapping("/{username},{password}")
-    public List<Login> getUserByUsernameAndPassword(@PathVariable final String username, @PathVariable final String password){
-        return loginJpaRepository.findByKorisnickoImeAndLozinka(username, password);
     }
 
 

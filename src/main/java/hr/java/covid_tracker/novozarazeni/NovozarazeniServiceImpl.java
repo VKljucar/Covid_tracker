@@ -9,41 +9,41 @@ import java.util.stream.Collectors;
 @Service
 public class NovozarazeniServiceImpl implements NovozarazeniService{
 
-    private final NovozarazeniRepository novozarazeniRepository;
+    private final NovozarazeniJpaRepository novozarazeniJpaRepository;
 
-    public NovozarazeniServiceImpl(NovozarazeniRepository novozarazeniRepository){
-        this.novozarazeniRepository = novozarazeniRepository;
+    public NovozarazeniServiceImpl(NovozarazeniJpaRepository novozarazeniJpaRepository){
+        this.novozarazeniJpaRepository = novozarazeniJpaRepository;
     }
 
     @Override
     public List<NovozarazeniDTO> findAll() {
-        return novozarazeniRepository.findAll().stream().map(NovozarazeniDTO::new).collect(Collectors.toList());
+        return novozarazeniJpaRepository.findAll().stream().map(NovozarazeniDTO::new).collect(Collectors.toList());
     }
 
     @Override
     public Optional<NovozarazeniDTO> findByParameters(String ime, String prezime, String hospitaliziran) {
-        return novozarazeniRepository.findByParameters(ime,prezime,hospitaliziran).map(NovozarazeniDTO::new);
+        return novozarazeniJpaRepository.findAllByParameters(ime,prezime,hospitaliziran).map(NovozarazeniDTO::new);
     }
 
     @Override
-    public Optional<NovozarazeniDTO> save(NovozarazeniCommand novozarazeniCommand) {
-        return novozarazeniRepository
-                .save(new Novozarazeni(novozarazeniCommand))
-                .map(NovozarazeniDTO::new);
+    public NovozarazeniDTO save(NovozarazeniCommand novozarazeniCommand) {
+        return mapNovozarazeniToDTO(novozarazeniJpaRepository.save(mapToNovozarazeni(novozarazeniCommand)));
     }
 
     @Override
-    public Optional<NovozarazeniDTO> update(final int id, final NovozarazeniCommand novozarazeniCommand) {
-        return novozarazeniRepository.update(id, mapToNovozarazeni(novozarazeniCommand)).map(this::mapNovozarazeniToDTO);
+    public void update(int id, final NovozarazeniCommand novozarazeniCommand) {
+        Novozarazeni novozarazeni = novozarazeniJpaRepository.findByOboljeliId(id);
+        novozarazeni.updateNovozarazeni(novozarazeniCommand);
+        novozarazeniJpaRepository.save(novozarazeni);
     }
 
     @Override
     public void deleteById(int id) {
-        novozarazeniRepository.deleteById(id);
+        novozarazeniJpaRepository.deleteByOboljeliId(id);
     }
 
     private Novozarazeni mapToNovozarazeni(final NovozarazeniCommand novozarazeniCommand){
-        return new Novozarazeni(novozarazeniCommand.getOsobaId(),novozarazeniCommand.getIme(),novozarazeniCommand.getPrezime(),novozarazeniCommand.getDatRodenja(),novozarazeniCommand.getAdresa(),novozarazeniCommand.getTelefon(),novozarazeniCommand.getEmail(),novozarazeniCommand.getHospitaliziran(),novozarazeniCommand.getLokacija());
+        return new Novozarazeni(novozarazeniCommand);
     }
 
     private NovozarazeniDTO mapNovozarazeniToDTO(final Novozarazeni novozarazeni){
