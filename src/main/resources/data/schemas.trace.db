@@ -7153,24 +7153,24 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2021-06-09 21:02:12 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "KORISNICI" not found; SQL statement:
-SELECT * FROM korisnici [42102-200]
-2021-06-09 21:02:23 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CIJEPLJENI" not found; SQL statement:
-select cijepljeni0_.cijepljeni_id as cijeplje1_0_, cijepljeni0_.adresa as adresa2_0_, cijepljeni0_.cijepivo_id as cijepivo3_0_, cijepljeni0_.dat_rodenja as dat_rode4_0_, cijepljeni0_.datum_cijepljenja as datum_ci5_0_, cijepljeni0_.email as email6_0_, cijepljeni0_.ime as ime7_0_, cijepljeni0_.osoba_id as osoba_id8_0_, cijepljeni0_.prezime as prezime9_0_, cijepljeni0_.telefon as telefon10_0_ from cijepljeni cijepljeni0_ [42102-200]
-2021-06-09 21:05:31 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CIJEPLJENI" not found; SQL statement:
-select cijepljeni0_.cijepljeni_id as cijeplje1_0_, cijepljeni0_.adresa as adresa2_0_, cijepljeni0_.cijepivo_id as cijepivo3_0_, cijepljeni0_.dat_rodenja as dat_rode4_0_, cijepljeni0_.datum_cijepljenja as datum_ci5_0_, cijepljeni0_.email as email6_0_, cijepljeni0_.ime as ime7_0_, cijepljeni0_.osoba_id as osoba_id8_0_, cijepljeni0_.prezime as prezime9_0_, cijepljeni0_.telefon as telefon10_0_ from cijepljeni cijepljeni0_ [42102-200]
-2021-06-09 21:06:58 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CIJEPLJENI" not found; SQL statement:
-SELECT * FROM CIJEPLJENI [42102-200]
-2021-06-09 21:07:12 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "NOVOZARAZENI" not found; SQL statement:
-SELECT * FROM NOVOZARAZENI [42102-200]
-2021-06-09 21:07:25 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "OBOLJELI" not found; SQL statement:
-SELECT * FROM OBOLJELI [42102-200]
-2021-06-09 21:07:31 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "KORISNICI" not found; SQL statement:
-SELECT * FROM KORISNICI [42102-200]
+2021-06-09 19:07:47 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:466)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
