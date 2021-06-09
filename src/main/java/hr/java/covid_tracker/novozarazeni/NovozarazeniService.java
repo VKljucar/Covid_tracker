@@ -9,9 +9,9 @@ public interface NovozarazeniService {
 
     Optional<NovozarazeniDTO> findByParameters(String ime, String prezime, String hospitaliziran);
 
-    Optional<NovozarazeniDTO> save(NovozarazeniCommand novozarazeniCommand);
+    NovozarazeniDTO save(NovozarazeniCommand novozarazeniCommand);
 
-    Optional<NovozarazeniDTO> update(int id, NovozarazeniCommand novozarazeniCommand);
+    void update(int id, NovozarazeniCommand novozarazeniCommand);
 
     void deleteById(int id);
 

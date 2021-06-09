@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface LoginJpaRepository extends JpaRepository<Login, Integer> {
@@ -15,6 +16,6 @@ public interface LoginJpaRepository extends JpaRepository<Login, Integer> {
     @Query("SELECT p FROM Login p WHERE UPPER(p.korisnickoIme) = UPPER(:korisnickoIme)")
     List<Login> findAllByKorisnickoIme(@Param("korisnickoIme") String korisnickoIme);
 
-    List<Login> findByKorisnickoImeAndLozinka(String korisnickoIme, String lozinka);
+    Optional<Login> findByKorisnickoImeAndLozinka(String korisnickoIme, String lozinka);
 
 }
