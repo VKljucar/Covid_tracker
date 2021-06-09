@@ -14,35 +14,27 @@ import javax.validation.Valid;
 public class NozarazeniUpisController {
 
     private final NovozarazeniService novozarazeniService;
-    private final NovozarazeniJpaRepository novozarazeniJpaRepository;
 
-    public NozarazeniUpisController(NovozarazeniService novozarazeniService, NovozarazeniJpaRepository novozarazeniJpaRepository) {
+    public NozarazeniUpisController(NovozarazeniService novozarazeniService) {
         this.novozarazeniService = novozarazeniService;
-        this.novozarazeniJpaRepository = novozarazeniJpaRepository;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public NovozarazeniDTO save(@Valid @RequestBody final NovozarazeniCommand novozarazeniCommand) {
-        return novozarazeniService.save(novozarazeniCommand)
-                .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.CONFLICT, "Postoji osoba sa istim podacima")
-                );
+        return novozarazeniService.save(novozarazeniCommand);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PutMapping("/{id}")
-    public ResponseEntity<NovozarazeniDTO> update(@PathVariable int id, @Valid @RequestBody final NovozarazeniCommand updateNovozarazeniCommand){
-        return novozarazeniService.update(id, updateNovozarazeniCommand)
-                .map(ResponseEntity::ok)
-                .orElseGet(
-                        () -> ResponseEntity.notFound().build()
-                );
+    public void update(@PathVariable int id, @Valid @RequestBody final NovozarazeniCommand updateNovozarazeniCommand) {
+        novozarazeniService.update(id, updateNovozarazeniCommand);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{oboljeli_id}")
-    public void delete(@PathVariable final int oboljeli_id){
-        novozarazeniJpaRepository.deleteByOboljeliId(oboljeli_id);
+    public void delete(@PathVariable final int oboljeli_id) {
+        novozarazeniService.deleteById(oboljeli_id);
     }
 
 }

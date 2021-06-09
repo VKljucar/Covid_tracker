@@ -12,7 +12,7 @@ public class Novozarazeni {
 
     @Id
     @Column(name = "OBOLJELI_ID")
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int oboljeliId;
 
     @Column(name = "OSOBA_ID")
@@ -50,6 +50,10 @@ public class Novozarazeni {
     }
 
     public Novozarazeni(NovozarazeniCommand novozarazeniCommand){
+        updateNovozarazeni(novozarazeniCommand);
+    }
+
+    public void updateNovozarazeni(NovozarazeniCommand novozarazeniCommand){
         this.osobaId = novozarazeniCommand.getOsobaId();
         this.ime = novozarazeniCommand.getIme();
         this.prezime = novozarazeniCommand.getPrezime();
