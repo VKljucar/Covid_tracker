@@ -18,10 +18,11 @@ public class LoginController {
         this.loginService = loginService;
     }
 
+    /*
     @GetMapping
     public List<LoginDTO> getAllUsers(){
         return loginService.findAll();
-    }
+    }*/
 
 
     @GetMapping("{korisnikoIme}/{lozinka}")
