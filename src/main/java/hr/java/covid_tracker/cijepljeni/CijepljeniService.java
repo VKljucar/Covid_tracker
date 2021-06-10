@@ -1,5 +1,6 @@
 package hr.java.covid_tracker.cijepljeni;
 
+import hr.java.covid_tracker.novozarazeni.NovozarazeniCommand;
 import hr.java.covid_tracker.novozarazeni.NovozarazeniDTO;
 
 import java.util.List;
@@ -11,9 +12,9 @@ public interface CijepljeniService {
 
     Optional<CijepljeniDTO> findByParameters(String ime, String prezime, int CijepivoID);
 
-    Optional<CijepljeniDTO> save(CijepljeniCommand cijepljeniCommand);
+    CijepljeniDTO save(CijepljeniCommand cijepljeniCommand);
 
-    Optional<CijepljeniDTO> update(int id);
+    void update(int id, CijepljeniCommand cijepljeniCommand);
 
     void deleteById(int id);
 

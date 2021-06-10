@@ -1,14 +1,13 @@
 package hr.java.covid_tracker.cijepljeni;
 
-import hr.java.covid_tracker.novozarazeni.Novozarazeni;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CijepljeniJpaRepository extends JpaRepository<Cijepljeni, Integer> {
@@ -25,5 +24,10 @@ public interface CijepljeniJpaRepository extends JpaRepository<Cijepljeni, Integ
     @Transactional
     @Modifying
     void deleteById(int id);
+
+    Cijepljeni findByCijepljeni(int id);
+
+    Optional<Cijepljeni> findAllByParameters(@Param("ime") String ime, @Param("prezime") String prezime, @Param("cijepivo_id") int cijepivo_id);
+
 
 }

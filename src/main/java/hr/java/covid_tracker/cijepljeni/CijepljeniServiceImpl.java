@@ -9,38 +9,47 @@ import java.util.stream.Collectors;
 @Service
 public class CijepljeniServiceImpl implements CijepljeniService {
 
-    private final CijepljeniRepository cijepljeniRepository;
+    private final CijepljeniJpaRepository cijepljeniJpaRepository;
 
-    public CijepljeniServiceImpl(CijepljeniRepository cijepljeniRepository){
-        this.cijepljeniRepository = cijepljeniRepository;
+    public CijepljeniServiceImpl(CijepljeniJpaRepository cijepljeniJpaRepository){
+        this.cijepljeniJpaRepository = cijepljeniJpaRepository;
     }
 
     @Override
     public List<CijepljeniDTO> findAll() {
-        return cijepljeniRepository.findAll().stream().map(CijepljeniDTO::new).collect(Collectors.toList());
-    }
-
-
-
-    @Override
-    public Optional<CijepljeniDTO> findByParameters(String ime, String prezime, int CijepivoID) {
-        return cijepljeniRepository.findByParameters(ime, prezime, CijepivoID).map(CijepljeniDTO::new);
+        return cijepljeniJpaRepository.findAll().stream().map(CijepljeniDTO::new).collect(Collectors.toList());
     }
 
     @Override
-    public Optional<CijepljeniDTO> save(CijepljeniCommand cijepljeniCommand) {
-        return cijepljeniRepository
-                .save(new Cijepljeni(cijepljeniCommand))
-                .map(CijepljeniDTO::new);
+    public Optional<CijepljeniDTO> findByParameters(String ime, String prezime, int cijepivo_id) {
+        return cijepljeniJpaRepository.findAllByParameters(ime, prezime, cijepivo_id).map(CijepljeniDTO::new);
     }
 
     @Override
-    public Optional<CijepljeniDTO> update(int id) {
-        return Optional.empty();
+    public CijepljeniDTO save(CijepljeniCommand cijepljeniCommand){
+        return mapToCijepljeniDTO(cijepljeniJpaRepository.save(mapToCijepljeni(cijepljeniCommand)));
+    }
+
+    @Override
+    public void update(int id, final CijepljeniCommand cijepljeniCommand) {
+        Cijepljeni cijepljeni = cijepljeniJpaRepository.findByCijepljeni(id);
+        cijepljeni.updateCijepljeni(cijepljeniCommand);
+        cijepljeniJpaRepository.save(cijepljeni);
     }
 
     @Override
     public void deleteById(int id) {
+        cijepljeniJpaRepository.deleteById(id);
 
     }
+
+    private Cijepljeni mapToCijepljeni(final CijepljeniCommand cijepljeniCommand){
+        return new Cijepljeni(cijepljeniCommand);
+    }
+
+    private CijepljeniDTO mapToCijepljeniDTO(final Cijepljeni cijepljeni){
+        return new CijepljeniDTO(cijepljeni);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package hr.java.covid_tracker.cijepljeni;
 
 import hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin;
+import hr.java.covid_tracker.novozarazeni.NovozarazeniCommand;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -64,6 +65,17 @@ public class Cijepljeni {
     }
 
     public Cijepljeni(CijepljeniCommand cijepljeniCommand){
+        this.ime = cijepljeniCommand.getIme();
+        this.prezime = cijepljeniCommand.getPrezime();
+        this.datRodenja = cijepljeniCommand.getDatRodenja();
+        this.adresa = cijepljeniCommand.getAdresa();
+        this.telefon = cijepljeniCommand.getTelefon();
+        this.email = cijepljeniCommand.getEmail();
+        this.datumCijepljenja = cijepljeniCommand.getDatumCijepljenja();
+        this.cijepivoID = cijepljeniCommand.getCijepivoID();
+    }
+
+    public void updateCijepljeni(CijepljeniCommand cijepljeniCommand){
         this.ime = cijepljeniCommand.getIme();
         this.prezime = cijepljeniCommand.getPrezime();
         this.datRodenja = cijepljeniCommand.getDatRodenja();
