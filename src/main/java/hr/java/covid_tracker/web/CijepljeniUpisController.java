@@ -30,10 +30,7 @@ public class CijepljeniUpisController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public CijepljeniDTO save(@Valid @RequestBody final CijepljeniCommand cijepljeniCommand) {
-        return cijepljeniService.save(cijepljeniCommand)
-                .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.CONFLICT, "Postoji osoba sa istim podacima")
-                );
+        return cijepljeniService.save(cijepljeniCommand);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -1,6 +1,7 @@
 package hr.java.covid_tracker.cijepljeni;
 
 import hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin;
+import hr.java.covid_tracker.novozarazeni.NovozarazeniCommand;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,7 +12,7 @@ import java.util.Objects;
 public class Cijepljeni {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "CIJEPLJENI_ID")
     private int cijepljeniID;
 
@@ -29,7 +30,7 @@ public class Cijepljeni {
     private String email;
 
     @Column(name = "DATUM_CIJEPLJENJA")
-    private Date datumCijepljenja;
+    private String datumCijepljenja;
 
     @Column(name = "CIJEPIVO_ID")
     private int cijepivoID;
@@ -50,7 +51,7 @@ public class Cijepljeni {
     public Cijepljeni() {
     }
 
-    public Cijepljeni(int cijepljeniID, int osobaID, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, Date datumCijepljenja, int cijepivoID) {
+    public Cijepljeni(int cijepljeniID, int osobaID, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, String datumCijepljenja, int cijepivoID) {
         this.cijepljeniID = cijepljeniID;
         this.osobaID = osobaID;
         this.ime = ime;
@@ -64,6 +65,17 @@ public class Cijepljeni {
     }
 
     public Cijepljeni(CijepljeniCommand cijepljeniCommand){
+        this.ime = cijepljeniCommand.getIme();
+        this.prezime = cijepljeniCommand.getPrezime();
+        this.datRodenja = cijepljeniCommand.getDatRodenja();
+        this.adresa = cijepljeniCommand.getAdresa();
+        this.telefon = cijepljeniCommand.getTelefon();
+        this.email = cijepljeniCommand.getEmail();
+        this.datumCijepljenja = cijepljeniCommand.getDatumCijepljenja();
+        this.cijepivoID = cijepljeniCommand.getCijepivoID();
+    }
+
+    public void updateCijepljeni(CijepljeniCommand cijepljeniCommand){
         this.ime = cijepljeniCommand.getIme();
         this.prezime = cijepljeniCommand.getPrezime();
         this.datRodenja = cijepljeniCommand.getDatRodenja();
@@ -114,7 +126,7 @@ public class Cijepljeni {
         return email;
     }
 
-    public Date getDatumCijepljenja() {
+    public String getDatumCijepljenja() {
         return datumCijepljenja;
     }
 
