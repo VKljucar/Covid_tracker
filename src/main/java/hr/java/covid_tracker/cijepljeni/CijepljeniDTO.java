@@ -10,7 +10,7 @@ public class CijepljeniDTO {
         private String adresa;
         private String telefon;
         private String email;
-        private Date datumCijepljenja;
+        private String datumCijepljenja;
         private int cijepivoID;
 
         public CijepljeniDTO(Cijepljeni cijepljeni) {

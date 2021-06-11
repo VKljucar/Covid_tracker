@@ -32,7 +32,7 @@ public class CijepljeniServiceImpl implements CijepljeniService {
 
     @Override
     public void update(int id, final CijepljeniCommand cijepljeniCommand) {
-        Cijepljeni cijepljeni = cijepljeniJpaRepository.findByCijepljeni(id);
+        Cijepljeni cijepljeni = cijepljeniJpaRepository.findByCijepivoID(id);
         cijepljeni.updateCijepljeni(cijepljeniCommand);
         cijepljeniJpaRepository.save(cijepljeni);
     }

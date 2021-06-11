@@ -109,7 +109,7 @@ public class JdbcCijepljeniRepository implements CijepljeniRepository {
                 rs.getString("adresa"),
                 rs.getString("telefon"),
                 rs.getString("email"),
-                rs.getDate("datumCijepljenja"),
+                rs.getString("datumCijepljenja"),
                 rs.getInt("lokacija")
         );
     }

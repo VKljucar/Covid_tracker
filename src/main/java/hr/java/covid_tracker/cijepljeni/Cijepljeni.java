@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Cijepljeni {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "CIJEPLJENI_ID")
     private int cijepljeniID;
 
@@ -30,7 +30,7 @@ public class Cijepljeni {
     private String email;
 
     @Column(name = "DATUM_CIJEPLJENJA")
-    private Date datumCijepljenja;
+    private String datumCijepljenja;
 
     @Column(name = "CIJEPIVO_ID")
     private int cijepivoID;
@@ -51,7 +51,7 @@ public class Cijepljeni {
     public Cijepljeni() {
     }
 
-    public Cijepljeni(int cijepljeniID, int osobaID, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, Date datumCijepljenja, int cijepivoID) {
+    public Cijepljeni(int cijepljeniID, int osobaID, String ime, String prezime, String datRodenja, String adresa, String telefon, String email, String datumCijepljenja, int cijepivoID) {
         this.cijepljeniID = cijepljeniID;
         this.osobaID = osobaID;
         this.ime = ime;
@@ -126,7 +126,7 @@ public class Cijepljeni {
         return email;
     }
 
-    public Date getDatumCijepljenja() {
+    public String getDatumCijepljenja() {
         return datumCijepljenja;
     }
 

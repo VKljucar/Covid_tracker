@@ -24,10 +24,10 @@ public class CijepljeniCommand {
     @NotBlank(message = "Email ne smije biti prazno")
     private String email;
 
-    @NotBlank(message = "DatumCijepljenja ne smije biti prazno")
-    private Date datumCijepljenja;
+    @NotNull(message = "DatumCijepljenja ne smije biti prazno")
+    private String datumCijepljenja;
 
-    @NotBlank(message = "CijepivoID ne smije biti prazno")
+    @NotNull(message = "CijepivoID ne smije biti prazno")
     private int cijepivoID;
 
     public String getIme() {
@@ -54,7 +54,7 @@ public class CijepljeniCommand {
         return email;
     }
 
-    public Date getDatumCijepljenja() {
+    public String getDatumCijepljenja() {
         return datumCijepljenja;
     }
 
