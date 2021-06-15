@@ -16,7 +16,7 @@ public class NozarazeniController {
 
     private final NovozarazeniService novozarazeniService;
 
-    public NozarazeniController(NovozarazeniService novozarazeniService) {
+    public NozarazeniController(NovozarazeniServiceImpl novozarazeniService) {
         this.novozarazeniService = novozarazeniService;
     }
 
@@ -25,12 +25,12 @@ public class NozarazeniController {
         return novozarazeniService.findAll();
     }
 
-    @GetMapping("{ime}/{prezime}/{hospitaliziran}")
-    public NovozarazeniDTO getByParameters(@PathVariable final String ime, @PathVariable final String prezime, @PathVariable final String hospitaliziran) {
-        return novozarazeniService.findByParameters(ime, prezime, hospitaliziran)
-                .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nije pronađena ni jedna osoba")
-                );
+    @GetMapping("/param")
+    @ResponseBody
+    public List<NovozarazeniDTO> getByParameters(@RequestParam(required = false, name = "ime") final String ime,
+                                                 @RequestParam(required = false, name = "prezime") final String prezime,
+                                                 @RequestParam(required = false, name = "hospitaliziran") final String hospitaliziran) {
+        return novozarazeniService.findByFilter(ime, prezime, hospitaliziran);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

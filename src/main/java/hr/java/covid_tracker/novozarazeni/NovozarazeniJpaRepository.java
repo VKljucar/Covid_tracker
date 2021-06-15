@@ -20,7 +20,7 @@ public interface NovozarazeniJpaRepository extends JpaRepository<Novozarazeni, I
     @Query("SELECT p FROM Novozarazeni p " +
             "WHERE (:ime IS NULL OR UPPER(p.ime) LIKE CONCAT('%',UPPER(:ime),'%')) AND (:prezime IS NULL OR UPPER(p.prezime) LIKE CONCAT('%',UPPER(:prezime),'%')) " +
             "AND (:hospitaliziran IS NULL OR UPPER(p.hospitaliziran) LIKE CONCAT('%',UPPER(:hospitaliziran),'%'))")
-    Optional<Novozarazeni> findAllByParameters(@Param("ime") String ime, @Param("prezime") String prezime, @Param("hospitaliziran") String hospitaliziran);
+    List<NovozarazeniDTO> findAllByParameters(@Param("ime") String ime, @Param("prezime") String prezime, @Param("hospitaliziran") String hospitaliziran);
 
     @Transactional
     @Modifying

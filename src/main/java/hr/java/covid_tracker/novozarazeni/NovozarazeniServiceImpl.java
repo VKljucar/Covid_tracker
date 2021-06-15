@@ -17,12 +17,12 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
 
     @Override
     public List<NovozarazeniDTO> findAll() {
-        return novozarazeniJpaRepository.findAll().stream().map(NovozarazeniDTO::new).collect(Collectors.toList());
+        return novozarazeniJpaRepository.findAll().stream().map(this::mapNovozarazeniToDTO).collect(Collectors.toList());
     }
 
     @Override
-    public Optional<NovozarazeniDTO> findByParameters(String ime, String prezime, String hospitaliziran) {
-        return novozarazeniJpaRepository.findAllByParameters(ime,prezime,hospitaliziran).map(NovozarazeniDTO::new);
+    public List<NovozarazeniDTO> findByFilter(String ime, String prezime, String hospitaliziran) {
+        return novozarazeniJpaRepository.findAllByParameters(ime,prezime,hospitaliziran).stream().collect(Collectors.toList());
     }
 
     @Override
