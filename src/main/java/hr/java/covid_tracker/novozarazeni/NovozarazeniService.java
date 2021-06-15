@@ -7,7 +7,7 @@ public interface NovozarazeniService {
 
     List<NovozarazeniDTO> findAll();
 
-    Optional<NovozarazeniDTO> findByParameters(String ime, String prezime, String hospitaliziran);
+    List<NovozarazeniDTO> findByFilter(String ime, String prezime, String hospitaliziran);
 
     NovozarazeniDTO save(NovozarazeniCommand novozarazeniCommand);
 
