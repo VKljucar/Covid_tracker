@@ -1,10 +1,13 @@
 package hr.java.covid_tracker.login;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hr.java.covid_tracker.novozarazeni.Novozarazeni;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "KORISNICI")
@@ -22,22 +25,25 @@ public class Login {
 
     private String lozinka;
 
-    @Enumerated(EnumType.STRING)
-    private Type uloga;
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "USER_AUTHORITY",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_id", referencedColumnName = "id")}
+    )
 
-    @OneToMany(mappedBy = "login")
-    private List<Novozarazeni> novozarazeni;
+    private Set<Authority> authorities = new HashSet<>();
 
     public Login() {
     }
 
-    public Login(int id, String ime, String prezime, String korisnickoIme, String lozinka, Type uloga) {
+    public Login(int id, String ime, String prezime, String korisnickoIme, String lozinka) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
-        this.uloga = uloga;
     }
 
     public int getId() {
@@ -64,8 +70,12 @@ public class Login {
         return lozinka;
     }
 
-    public Type getUloga() {
-        return uloga;
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
     }
 
     @Override

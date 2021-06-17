@@ -18,4 +18,5 @@ public interface LoginJpaRepository extends JpaRepository<Login, Integer> {
 
     Optional<Login> findByKorisnickoImeAndLozinka(String korisnickoIme, String lozinka);
 
+    Optional<Login> findByKorisnickoIme(String korisnickoIme);
 }

@@ -1,7 +1,6 @@
 package hr.java.covid_tracker.managingUsersByAdmin;
 
 import hr.java.covid_tracker.cijepljeni.Cijepljeni;
-import hr.java.covid_tracker.login.Type;
 
 import javax.persistence.*;
 import java.util.List;
@@ -27,9 +26,6 @@ public class ManagingUsersByAdmin {
         @Column(name = "LOZINKA")
         private String password;
 
-        @Column(name = "ULOGA")
-        @Enumerated(EnumType.STRING)
-        private Type role;
 
         @OneToMany(mappedBy = "managingUsersByAdmin")
         private List<Cijepljeni> cijepljeni;
@@ -43,13 +39,12 @@ public class ManagingUsersByAdmin {
 
         //private List<ManagingUsersByAdmin> managingUsersByAdminList;
 
-        public ManagingUsersByAdmin(int id, String firstname, String lastname, String username, String password, Type role) {
+        public ManagingUsersByAdmin(int id, String firstname, String lastname, String username, String password) {
             this.id = id;
             this.firstname = firstname;
             this.lastname = lastname;
             this.username = username;
             this.password = password;
-            this.role = role;
         }
 
         public ManagingUsersByAdmin(ManagingUsersByAdminCommand managingUsersByAdminCommand) {
@@ -58,7 +53,6 @@ public class ManagingUsersByAdmin {
         this.lastname = managingUsersByAdminCommand.getLastName();
         this.username = managingUsersByAdminCommand.getUsername();
         this.password = managingUsersByAdminCommand.getPassword();
-        this.role = managingUsersByAdminCommand.getRole();
         }
 
     public ManagingUsersByAdmin() {
@@ -89,21 +83,17 @@ public class ManagingUsersByAdmin {
             return password;
         }
 
-        public Type getRole() {
-            return role;
-        }
-
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (!(o instanceof ManagingUsersByAdmin)) return false;
             ManagingUsersByAdmin ManagingUsersByAdmin = (hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin) o;
-            return firstname.equals(ManagingUsersByAdmin.firstname) && lastname.equals(ManagingUsersByAdmin.lastname) && username.equals(ManagingUsersByAdmin.username) && password.equals(ManagingUsersByAdmin.password) && role.equals(ManagingUsersByAdmin.role);
+            return firstname.equals(ManagingUsersByAdmin.firstname) && lastname.equals(ManagingUsersByAdmin.lastname) && username.equals(ManagingUsersByAdmin.username) && password.equals(ManagingUsersByAdmin.password);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(id, firstname, lastname, username, password, role);
+            return Objects.hash(id, firstname, lastname, username, password);
         }
     }
 

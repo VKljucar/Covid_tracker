@@ -52,8 +52,7 @@ public class JdbcLoginRepository implements LoginRepository {
                 rs.getString("IME"),
                 rs.getString("PREZIME"),
                 rs.getString("KORISNICKO_IME"),
-                rs.getString("LOZINKA"),
-                Type.valueOf(rs.getString("ULOGA"))
+                rs.getString("LOZINKA")
         );
     }
 

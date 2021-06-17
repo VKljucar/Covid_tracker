@@ -1,7 +1,6 @@
 package hr.java.covid_tracker.managingUsersByAdmin;
 
 
-import hr.java.covid_tracker.login.Type;
 import org.springframework.context.annotation.Primary;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -64,8 +63,7 @@ public class JdbcManagingUsersByAdminRepository implements ManagingUsersByAdminR
                 rs.getString("IME"),
                 rs.getString("PREZIME"),
                 rs.getString("KORISNICKO_IME"),
-                rs.getString("LOZINKA"),
-                Type.valueOf(rs.getString("ULOGA"))
+                rs.getString("LOZINKA")
         );
     }
 
@@ -78,7 +76,6 @@ public class JdbcManagingUsersByAdminRepository implements ManagingUsersByAdminR
         values.put("prezime", managingUsersByAdmin.getLastname());
         values.put("korisnicko_ime", managingUsersByAdmin.getUsername());
         values.put("lozinka", managingUsersByAdmin.getPassword());
-        values.put("uloga", managingUsersByAdmin.getRole());
 
         return simpleJdbcInsert.executeAndReturnKey(values).intValue();
 

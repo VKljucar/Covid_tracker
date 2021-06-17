@@ -11,8 +11,8 @@ public class MockLoginRepository implements LoginRepository {
 
     private final Set<Login> MOCKED_LOGIN = new HashSet<>(
             Arrays.asList(
-                    new Login(1,"KorisnikIme", "KorisnikPrezime", "usr_korisnik", "lozinka123", Type.U),
-                    new Login(2,"KorisnikIme2", "KorisnikPrezime2", "usr_korisnik2", "lozinka123", Type.A)
+                    new Login(1,"KorisnikIme", "KorisnikPrezime", "usr_korisnik", "lozinka123"),
+                    new Login(2,"KorisnikIme2", "KorisnikPrezime2", "usr_korisnik2", "lozinka123")
             )
     );
 

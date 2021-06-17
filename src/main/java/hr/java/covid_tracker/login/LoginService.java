@@ -9,4 +9,6 @@ public interface LoginService {
 
     Optional<LoginDTO> findUser(String korisnickoIme, String lozinka);
 
+    Optional<LoginDTO> findByKorisnickoIme(String korisnickoIme);
+
 }
