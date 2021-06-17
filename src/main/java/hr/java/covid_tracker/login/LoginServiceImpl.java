@@ -36,7 +36,7 @@ class LoginServiceImpl implements LoginService{
         LoginDTO userDTO = new LoginDTO();
 
         userDTO.setId(user.getId());
-        userDTO.setKorisnickoIme(user.getKorisnickoIme());
+        userDTO.setUsername(user.getKorisnickoIme());
         userDTO.setIme(user.getIme());
         userDTO.setPrezime(user.getPrezime());
         userDTO.setAuthorities(user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toSet()));

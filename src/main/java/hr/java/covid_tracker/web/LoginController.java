@@ -31,7 +31,7 @@ public class LoginController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<JWTToken> authenticate(@Valid @RequestBody LoginController.LoginDTO loginDTO) {
+    public ResponseEntity<JWTToken> authenticate(@Valid @RequestBody LoginDTO loginDTO) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 loginDTO.getUsername(),
                 loginDTO.getPassword()
@@ -46,48 +46,6 @@ public class LoginController {
         httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
         return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);
-    }
-
-
-    static class JWTToken {
-        private String token;
-
-        public JWTToken(String token) {
-            this.token = token;
-        }
-
-        public String getToken() {
-            return token;
-        }
-
-        public void setToken(String token) {
-            this.token = token;
-        }
-    }
-
-    static class LoginDTO {
-
-        @NotNull
-        private String username;
-
-        @NotNull
-        private String password;
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
     }
 
 }
