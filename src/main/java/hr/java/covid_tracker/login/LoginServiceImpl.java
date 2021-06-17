@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class LoginServiceImpl implements LoginService{
+class LoginServiceImpl implements LoginService{
 
     private final LoginRepository loginRepository;
     private final LoginJpaRepository loginJpaRepository;
@@ -27,5 +27,21 @@ public class LoginServiceImpl implements LoginService{
         return loginJpaRepository.findByKorisnickoImeAndLozinka(korisnickoIme, lozinka).map(LoginDTO::new);
     }
 
+    @Override
+    public Optional<LoginDTO> findByKorisnickoIme(String korisnickoIme) {
+        return loginJpaRepository.findByKorisnickoIme(korisnickoIme).map(this::mapUserToDTO);
+    }
+
+    private LoginDTO mapUserToDTO(final Login user){
+        LoginDTO userDTO = new LoginDTO();
+
+        userDTO.setId(user.getId());
+        userDTO.setKorisnickoIme(user.getKorisnickoIme());
+        userDTO.setIme(user.getIme());
+        userDTO.setPrezime(user.getPrezime());
+        userDTO.setAuthorities(user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toSet()));
+
+        return userDTO;
+    }
 
 }

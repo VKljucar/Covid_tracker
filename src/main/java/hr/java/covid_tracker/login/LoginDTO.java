@@ -1,40 +1,89 @@
 package hr.java.covid_tracker.login;
 
+import javax.validation.constraints.NotNull;
+import java.util.Set;
+
 public class LoginDTO {
 
-    private final String korisnickoIme;
-    private final String lozinka;
-    private final Type uloga;
+    private int id;
+    private String ime;
+    private String prezime;
 
-    public LoginDTO(String korisnickoIme, String lozinka, Type uloga) {
-        this.korisnickoIme = korisnickoIme;
-        this.lozinka = lozinka;
-        this.uloga = uloga;
+    @NotNull
+    private String username;
+
+    @NotNull
+    private String password;
+
+    private Set<String> authorities;
+
+    public LoginDTO() {
+    }
+
+    public LoginDTO(String korisnickoIme, String lozinka) {
+        this.username = korisnickoIme;
+        this.password = lozinka;
     }
 
     public LoginDTO(Login login){
-        this.korisnickoIme = login.getKorisnickoIme();
-        this.lozinka = login.getLozinka();
-        this.uloga = login.getUloga();
+        this.username = login.getKorisnickoIme();
+        this.password = login.getLozinka();
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getIme() {
+        return ime;
+    }
+
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
+    public String getPrezime() {
+        return prezime;
+    }
+
+    public void setPrezime(String prezime) {
+        this.prezime = prezime;
     }
 
     public String getKorisnickoIme() {
-        return korisnickoIme;
+        return username;
     }
 
     public String getLozinka() {
-        return lozinka;
+        return password;
     }
 
-    public Type getUloga() {
-        return uloga;
+    public Set<String> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<String> authorities) {
+        this.authorities = authorities;
+    }
+
+    public void setKorisnickoIme(String korisnickoIme) {
+        this.username = korisnickoIme;
+    }
+
+    public void setLozinka(String lozinka) {
+        this.password = lozinka;
     }
 
     @Override
     public String toString(){
         return "LoginDTO{"+
-                "korisnickoIme='" + korisnickoIme + '\'' +
-                ", uloga=" + uloga +
+                "username='" + username + '\'' +
+                ", password=" + password + '\'' +
                 '}';
     }
 
