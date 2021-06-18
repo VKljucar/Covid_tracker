@@ -110,7 +110,7 @@ public class JdbcCijepljeniRepository implements CijepljeniRepository {
                 rs.getString("telefon"),
                 rs.getString("email"),
                 rs.getString("datumCijepljenja"),
-                rs.getInt("lokacija")
+                rs.getInt("hr/java/covid_tracker/bolnice")
         );
     }
 

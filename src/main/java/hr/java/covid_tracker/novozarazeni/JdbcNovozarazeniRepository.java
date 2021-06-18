@@ -100,6 +100,7 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
 
     private Novozarazeni mapRowToNovozarazeni(ResultSet rs, int rowNum) throws SQLException {
         return new Novozarazeni(
+                rs.getInt("oboljeli_id"),
                 rs.getInt("osoba_id"),
                 rs.getString("ime"),
                 rs.getString("prezime"),
@@ -108,7 +109,7 @@ public class JdbcNovozarazeniRepository implements NovozarazeniRepository {
                 rs.getString("telefon"),
                 rs.getString("email"),
                 rs.getString("hospitaliziran"),
-                rs.getInt("lokacija")
+                rs.getInt("hr/java/covid_tracker/bolnice")
         );
     }
 

@@ -55,12 +55,20 @@ public class LoginDTO {
         this.prezime = prezime;
     }
 
-    public String getKorisnickoIme() {
+    public String getUsername() {
         return username;
     }
 
-    public String getLozinka() {
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<String> getAuthorities() {
@@ -69,14 +77,6 @@ public class LoginDTO {
 
     public void setAuthorities(Set<String> authorities) {
         this.authorities = authorities;
-    }
-
-    public void setKorisnickoIme(String korisnickoIme) {
-        this.username = korisnickoIme;
-    }
-
-    public void setLozinka(String lozinka) {
-        this.password = lozinka;
     }
 
     @Override
