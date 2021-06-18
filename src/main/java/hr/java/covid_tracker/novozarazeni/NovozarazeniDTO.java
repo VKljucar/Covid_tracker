@@ -2,6 +2,7 @@ package hr.java.covid_tracker.novozarazeni;
 
 public class NovozarazeniDTO {
 
+    private int oboljeliId;
     private String ime;
     private String prezime;
     private String datRodenja;
@@ -12,6 +13,7 @@ public class NovozarazeniDTO {
     private int lokacija;
 
     public NovozarazeniDTO(Novozarazeni novozarazeni) {
+        this.oboljeliId = novozarazeni.getOboljeliId();
         this.ime = novozarazeni.getIme();
         this.prezime = novozarazeni.getPrezime();
         this.datRodenja = novozarazeni.getDatRodenja();
@@ -20,6 +22,10 @@ public class NovozarazeniDTO {
         this.email = novozarazeni.getEmail();
         this.hospitaliziran = novozarazeni.getHospitaliziran();
         this.lokacija = novozarazeni.getLokacija();
+    }
+
+    public int getOboljeliId() {
+        return oboljeliId;
     }
 
     public String getIme() {
@@ -57,6 +63,7 @@ public class NovozarazeniDTO {
     @Override
     public String toString(){
         return "NovozarazeniDTO{" +
+                "oboljeliId='" + oboljeliId + '\'' +
                 "ime='" + ime + '\'' +
                 ", prezime=" + prezime + '\'' +
                 ", datRodenja=" + datRodenja + '\'' +

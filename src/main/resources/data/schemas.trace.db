@@ -1964,7 +1964,7 @@ delete from korisnici where osoba_id=? [42122-200]
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:26:17 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_1_.OSOBA_ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2080,7 +2080,7 @@ select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:26:32 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_1_.OSOBA_ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2196,7 +2196,7 @@ select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:27:22 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_1_.OSOBA_ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2312,7 +2312,7 @@ select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:36:35 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_1_.ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id0_1_ from oboljeli novozaraze0_ left outer join oboljeli novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id0_1_ from oboljeli novozaraze0_ left outer join oboljeli novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2425,7 +2425,7 @@ select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:37:02 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_1_.ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id0_1_ from oboljeli novozaraze0_ left outer join oboljeli novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id0_1_ from oboljeli novozaraze0_ left outer join oboljeli novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2538,7 +2538,7 @@ select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:38:05 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_1_.OSOBA_ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_, novozaraze0_1_.id as id1_0_ from oboljeli novozaraze0_ left outer join korisnici novozaraze0_1_ on novozaraze0_.oboljeli_id=novozaraze0_1_.osoba_id where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2762,7 +2762,7 @@ delete from korisnici where osoba_id=? [42122-200]
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:51:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_.ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.id as id11_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_ from oboljeli novozaraze0_ where novozaraze0_.oboljeli_id=? [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.id as id11_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_ from oboljeli novozaraze0_ where novozaraze0_.oboljeli_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -2875,7 +2875,7 @@ select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 12:51:56 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "NOVOZARAZE0_.ID" not found; SQL statement:
-select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.id as id11_1_, novozaraze0_.lokacija as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_ from oboljeli novozaraze0_ where (? is null or upper(novozaraze0_.ime) like ('%'||upper(?)||'%')) and (? is null or upper(novozaraze0_.prezime) like ('%'||upper(?)||'%')) and (? is null or upper(novozaraze0_.hospitaliziran) like ('%'||upper(?)||'%')) [42122-200]
+select novozaraze0_.oboljeli_id as oboljeli1_1_, novozaraze0_.adresa as adresa2_1_, novozaraze0_.dat_rodenja as dat_rode3_1_, novozaraze0_.email as email4_1_, novozaraze0_.hospitaliziran as hospital5_1_, novozaraze0_.ime as ime6_1_, novozaraze0_.id as id11_1_, novozaraze0_.hr.java.covid_tracker.bolnice as lokacija7_1_, novozaraze0_.osoba_id as osoba_id8_1_, novozaraze0_.prezime as prezime9_1_, novozaraze0_.telefon as telefon10_1_ from oboljeli novozaraze0_ where (? is null or upper(novozaraze0_.ime) like ('%'||upper(?)||'%')) and (? is null or upper(novozaraze0_.prezime) like ('%'||upper(?)||'%')) and (? is null or upper(novozaraze0_.hospitaliziran) like ('%'||upper(?)||'%')) [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -3531,7 +3531,7 @@ delete from korisnici where (osoba_id) in (select oboljeli_id from oboljeli wher
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 13:14:05 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "LOGIN0_.OSOBA_ID" not found; SQL statement:
-select login0_.osoba_id as osoba_id8_0_0_, login0_.id as id1_0_0_, login1_.id as id1_0_1_, login1_.ime as ime2_0_1_, login1_.korisnicko_ime as korisnic3_0_1_, login1_.lozinka as lozinka4_0_1_, login1_.novozarazeni_oboljeli_id as novozara7_0_1_, login1_.prezime as prezime5_0_1_, login1_.uloga as uloga6_0_1_, novozaraze2_.oboljeli_id as oboljeli1_1_2_, novozaraze2_.adresa as adresa2_1_2_, novozaraze2_.dat_rodenja as dat_rode3_1_2_, novozaraze2_.email as email4_1_2_, novozaraze2_.hospitaliziran as hospital5_1_2_, novozaraze2_.ime as ime6_1_2_, novozaraze2_.lokacija as lokacija7_1_2_, novozaraze2_.osoba_id as osoba_id8_1_2_, novozaraze2_.prezime as prezime9_1_2_, novozaraze2_.telefon as telefon10_1_2_ from korisnici login0_ inner join korisnici login1_ on login0_.id=login1_.id left outer join oboljeli novozaraze2_ on login1_.novozarazeni_oboljeli_id=novozaraze2_.oboljeli_id where login0_.osoba_id=? [42122-200]
+select login0_.osoba_id as osoba_id8_0_0_, login0_.id as id1_0_0_, login1_.id as id1_0_1_, login1_.ime as ime2_0_1_, login1_.korisnicko_ime as korisnic3_0_1_, login1_.lozinka as lozinka4_0_1_, login1_.novozarazeni_oboljeli_id as novozara7_0_1_, login1_.prezime as prezime5_0_1_, login1_.uloga as uloga6_0_1_, novozaraze2_.oboljeli_id as oboljeli1_1_2_, novozaraze2_.adresa as adresa2_1_2_, novozaraze2_.dat_rodenja as dat_rode3_1_2_, novozaraze2_.email as email4_1_2_, novozaraze2_.hospitaliziran as hospital5_1_2_, novozaraze2_.ime as ime6_1_2_, novozaraze2_.hr.java.covid_tracker.bolnice as lokacija7_1_2_, novozaraze2_.osoba_id as osoba_id8_1_2_, novozaraze2_.prezime as prezime9_1_2_, novozaraze2_.telefon as telefon10_1_2_ from korisnici login0_ inner join korisnici login1_ on login0_.id=login1_.id left outer join oboljeli novozaraze2_ on login1_.novozarazeni_oboljeli_id=novozaraze2_.oboljeli_id where login0_.osoba_id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -3669,7 +3669,7 @@ select login0_.osoba_id as osoba_id8_0_0_, login0_.id as id1_0_0_, login1_.id as
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-04 13:16:47 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "LOGIN0_.OSOBA_ID" not found; SQL statement:
-select login0_.id as id1_0_0_, login0_.osoba_id as osoba_id8_0_0_, login1_.id as id1_0_1_, login1_.ime as ime2_0_1_, login1_.korisnicko_ime as korisnic3_0_1_, login1_.lozinka as lozinka4_0_1_, login1_.novozarazeni_oboljeli_id as novozara7_0_1_, login1_.prezime as prezime5_0_1_, login1_.uloga as uloga6_0_1_, novozaraze2_.oboljeli_id as oboljeli1_1_2_, novozaraze2_.adresa as adresa2_1_2_, novozaraze2_.dat_rodenja as dat_rode3_1_2_, novozaraze2_.email as email4_1_2_, novozaraze2_.hospitaliziran as hospital5_1_2_, novozaraze2_.ime as ime6_1_2_, novozaraze2_.lokacija as lokacija7_1_2_, novozaraze2_.osoba_id as osoba_id8_1_2_, novozaraze2_.prezime as prezime9_1_2_, novozaraze2_.telefon as telefon10_1_2_ from korisnici login0_ inner join korisnici login1_ on login0_.osoba_id=login1_.id left outer join oboljeli novozaraze2_ on login1_.novozarazeni_oboljeli_id=novozaraze2_.oboljeli_id where login0_.id=? [42122-200]
+select login0_.id as id1_0_0_, login0_.osoba_id as osoba_id8_0_0_, login1_.id as id1_0_1_, login1_.ime as ime2_0_1_, login1_.korisnicko_ime as korisnic3_0_1_, login1_.lozinka as lozinka4_0_1_, login1_.novozarazeni_oboljeli_id as novozara7_0_1_, login1_.prezime as prezime5_0_1_, login1_.uloga as uloga6_0_1_, novozaraze2_.oboljeli_id as oboljeli1_1_2_, novozaraze2_.adresa as adresa2_1_2_, novozaraze2_.dat_rodenja as dat_rode3_1_2_, novozaraze2_.email as email4_1_2_, novozaraze2_.hospitaliziran as hospital5_1_2_, novozaraze2_.ime as ime6_1_2_, novozaraze2_.hr.java.covid_tracker.bolnice as lokacija7_1_2_, novozaraze2_.osoba_id as osoba_id8_1_2_, novozaraze2_.prezime as prezime9_1_2_, novozaraze2_.telefon as telefon10_1_2_ from korisnici login0_ inner join korisnici login1_ on login0_.osoba_id=login1_.id left outer join oboljeli novozaraze2_ on login1_.novozarazeni_oboljeli_id=novozaraze2_.oboljeli_id where login0_.id=? [42122-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -6124,19 +6124,19 @@ select login0_.id as id1_0_, login0_.ime as ime2_0_, login0_.korisnicko_ime as k
 	at java.base/java.lang.Thread.run(Thread.java:831)
 2021-06-05 00:05:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "NOVOZARAZENI" not found; SQL statement:
-UPDATE novozarazeni SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, lokacija = ?, WHERE oboljeli_id = ? [42102-200]
+UPDATE novozarazeni SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, hr.java.covid_tracker.bolnice = ?, WHERE oboljeli_id = ? [42102-200]
 2021-06-05 00:08:43 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "OBLJELI" not found; SQL statement:
-UPDATE OBLJELI SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, lokacija = ?, WHERE oboljeli_id = ? [42102-200]
+UPDATE OBLJELI SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, hr.java.covid_tracker.bolnice = ?, WHERE oboljeli_id = ? [42102-200]
 2021-06-05 00:09:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE OBOLJELI SETOSOBA_ID =[*] ?, IME = ?, PREZIME = ?, DAT_RODENJA = ?, ADRESA = ?, TELEFON = ?, EMAIL = ?, HOSPITALIZIRAN = ?, LOKACIJA = ?, WHERE OBOLJELI_ID = ?"; expected "SET"; SQL statement:
-UPDATE OBOLJELI SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, lokacija = ?, WHERE oboljeli_id = ? [42001-200]
+UPDATE OBOLJELI SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, hr.java.covid_tracker.bolnice = ?, WHERE oboljeli_id = ? [42001-200]
 2021-06-05 00:11:58 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE OBOLJELI SETOSOBA_ID =[*] ?, IME = ?, PREZIME = ?, DAT_RODENJA = ?, ADRESA = ?, TELEFON = ?, EMAIL = ?, HOSPITALIZIRAN = ?, LOKACIJA = ?, WHERE OBOLJELI_ID = ?"; expected "SET"; SQL statement:
-UPDATE OBOLJELI SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, lokacija = ?, WHERE oboljeli_id = ? [42001-200]
+UPDATE OBOLJELI SETosoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, hr.java.covid_tracker.bolnice = ?, WHERE oboljeli_id = ? [42001-200]
 2021-06-05 00:12:56 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE OBOLJELI SET OSOBA_ID = ?, IME = ?, PREZIME = ?, DAT_RODENJA = ?, ADRESA = ?, TELEFON = ?, EMAIL = ?, HOSPITALIZIRAN = ?, LOKACIJA = ?, WHERE[*] OBOLJELI_ID = ?"; expected "identifier"; SQL statement:
-UPDATE OBOLJELI SET osoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, lokacija = ?, WHERE oboljeli_id = ? [42001-200]
+UPDATE OBOLJELI SET osoba_id = ?, ime = ?, prezime = ?, dat_rodenja = ?, adresa = ?, telefon = ?, email = ?, hospitaliziran = ?, hr.java.covid_tracker.bolnice = ?, WHERE oboljeli_id = ? [42001-200]
 2021-06-05 11:08:56 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "CIJEPLJENI0_.DATUM_RODENJA" not found; SQL statement:
 select cijepljeni0_.cijepljeni_id as cijeplje1_0_, cijepljeni0_.adresa as adresa2_0_, cijepljeni0_.cijepivo_id as cijepivo3_0_, cijepljeni0_.datum_rodenja as datum_ro4_0_, cijepljeni0_.datum_cijepljenja as datum_ci5_0_, cijepljeni0_.email as email6_0_, cijepljeni0_.ime as ime7_0_, cijepljeni0_.osoba_id as osoba_id8_0_, cijepljeni0_.prezime as prezime9_0_, cijepljeni0_.telefon as telefon10_0_ from cijepljeni cijepljeni0_ [42122-200]
@@ -7311,7 +7311,7 @@ call next value for hibernate_sequence [90036-200]
 	at java.base/java.lang.Thread.run(Thread.java:845)
 2021-06-11 15:43:06 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Cannot parse "DATE" constant "2021.02.02"; SQL statement:
-insert into oboljeli (oboljeli_id, adresa, dat_rodenja, email, hospitaliziran, ime, lokacija, osoba_id, prezime, telefon) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22007-200]
+insert into oboljeli (oboljeli_id, adresa, dat_rodenja, email, hospitaliziran, ime, hr.java.covid_tracker.bolnice, osoba_id, prezime, telefon) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22007-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:194)
