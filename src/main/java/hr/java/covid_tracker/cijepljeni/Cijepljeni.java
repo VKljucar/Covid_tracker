@@ -35,6 +35,9 @@ public class Cijepljeni {
     @Column(name = "CIJEPIVO_ID")
     private int cijepivoID;
 
+    @Column(name = "DAT_UPISA")
+    private String datUpisa;
+
     @ManyToOne
     @JoinColumn(name = "osoba_id" , insertable = false, updatable = false)
     private ManagingUsersByAdmin managingUsersByAdmin;

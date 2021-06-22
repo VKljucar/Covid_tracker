@@ -43,6 +43,16 @@ public class CijepljeniServiceImpl implements CijepljeniService {
 
     }
 
+    @Override
+    public Integer countAll(){
+        return cijepljeniJpaRepository.countAll();
+    }
+
+    @Override
+    public Integer findCijepljeniForDay(){
+        return cijepljeniJpaRepository.findCijepljeniForDay();
+    }
+
     private Cijepljeni mapToCijepljeni(final CijepljeniCommand cijepljeniCommand){
         return new Cijepljeni(cijepljeniCommand);
     }

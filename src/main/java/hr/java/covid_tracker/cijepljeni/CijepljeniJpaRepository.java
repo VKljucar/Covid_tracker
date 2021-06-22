@@ -28,4 +28,11 @@ public interface CijepljeniJpaRepository extends JpaRepository<Cijepljeni, Integ
             "AND (:cijepivo_id IS NULL OR UPPER(p.cijepivoID) LIKE CONCAT('%',UPPER(:cijepivo_id),'%'))")
     Optional<Cijepljeni> findAllByParameters(@Param("ime") String ime, @Param("prezime") String prezime, @Param("cijepivo_id") int cijepivo_id);
 
+    @Query("SELECT count(p) FROM Cijepljeni p")
+    Integer countAll();
+
+    @Query("SELECT count(p) FROM Cijepljeni p WHERE p.datUpisa = CURRENT_DATE")
+    Integer findCijepljeniForDay();
+
+
 }

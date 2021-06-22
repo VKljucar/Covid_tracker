@@ -18,4 +18,8 @@ public interface CijepljeniService {
 
     void deleteById(int id);
 
+    Integer countAll();
+
+    Integer findCijepljeniForDay();
+
 }

@@ -11,11 +11,11 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin(origins = "http://localhost:8080")
-public class UserController {
+public class LoginUserController {
 
     private final LoginService loginService;
 
-    public UserController(LoginService loginService) {
+    public LoginUserController(LoginService loginService) {
         this.loginService = loginService;
     }
 
