@@ -48,5 +48,5 @@ public class NozarazeniController {
     public void delete(@PathVariable final int oboljeli_id) {
         novozarazeniService.deleteById(oboljeli_id);
     }
-
+    
 }

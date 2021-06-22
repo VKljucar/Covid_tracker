@@ -30,6 +30,9 @@ public class Novozarazeni {
     private String hospitaliziran;
     private int lokacija;
 
+    @Column(name = "DAT_UPISA")
+    private String datUpisa;
+
     @ManyToOne
     @JoinColumn(name = "osoba_id", insertable = false, updatable = false)
     private Login login;
@@ -108,6 +111,10 @@ public class Novozarazeni {
 
     public int getLokacija() {
         return lokacija;
+    }
+
+    public String getDatUpisa() {
+        return datUpisa;
     }
 
     @Override

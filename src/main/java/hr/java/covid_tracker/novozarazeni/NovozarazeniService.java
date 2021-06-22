@@ -11,6 +11,16 @@ public interface NovozarazeniService {
 
     NovozarazeniDTO save(NovozarazeniCommand novozarazeniCommand);
 
+    Integer countAll();
+
+    Integer findNovozarazeniForDay();
+
+    Integer countAllHosp();
+
+    Integer findHospitaliziraniForDay();
+
+    Integer countNovozarazeniByDate(String datum);
+
     void update(int id, NovozarazeniCommand novozarazeniCommand);
 
     void deleteById(int id);
