@@ -11,6 +11,7 @@ public class NovozarazeniDTO {
     private String email;
     private String hospitaliziran;
     private int lokacija;
+    private String datUpisa;
 
     public NovozarazeniDTO(Novozarazeni novozarazeni) {
         this.oboljeliId = novozarazeni.getOboljeliId();
@@ -22,6 +23,7 @@ public class NovozarazeniDTO {
         this.email = novozarazeni.getEmail();
         this.hospitaliziran = novozarazeni.getHospitaliziran();
         this.lokacija = novozarazeni.getLokacija();
+        this.datUpisa = novozarazeni.getDatUpisa();
     }
 
     public int getOboljeliId() {
@@ -71,7 +73,8 @@ public class NovozarazeniDTO {
                 ", telefon=" + telefon + '\'' +
                 ", email=" + email + '\'' +
                 ", hospitaliziran=" + hospitaliziran + '\'' +
-                ", lokacija=" + lokacija +
+                ", lokacija=" + lokacija + '\'' +
+                ", datUpisa=" + datUpisa +
                 '}';
     }
 

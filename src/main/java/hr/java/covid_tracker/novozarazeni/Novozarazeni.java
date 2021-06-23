@@ -3,6 +3,8 @@ package hr.java.covid_tracker.novozarazeni;
 import hr.java.covid_tracker.login.Login;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 
@@ -67,6 +69,7 @@ public class Novozarazeni {
         this.email = novozarazeniCommand.getEmail();
         this.hospitaliziran = novozarazeniCommand.getHospitaliziran();
         this.lokacija = novozarazeniCommand.getLokacija();
+        this.datUpisa = getDatUpisa();
     }
 
     public int getOboljeliId() {
@@ -114,7 +117,11 @@ public class Novozarazeni {
     }
 
     public String getDatUpisa() {
-        return datUpisa;
+        DateTimeFormatter format = DateTimeFormatter
+                .ofPattern("yyyy-MM-dd");
+
+        LocalDateTime now = LocalDateTime.now();
+        return now.format(format);
     }
 
     @Override

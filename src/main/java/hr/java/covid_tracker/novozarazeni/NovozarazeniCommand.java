@@ -29,6 +29,8 @@ public class NovozarazeniCommand {
     @NotNull(message = "Osoba ne smije biti prazno")
     private int osobaId;
 
+    private String datUpisa;
+
     public String getIme() {
         return ime;
     }
@@ -63,5 +65,9 @@ public class NovozarazeniCommand {
 
     public int getOsobaId() {
         return osobaId;
+    }
+
+    public String getDatUpisa() {
+        return datUpisa;
     }
 }

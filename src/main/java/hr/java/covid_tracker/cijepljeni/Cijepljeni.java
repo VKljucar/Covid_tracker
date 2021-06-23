@@ -4,6 +4,8 @@ import hr.java.covid_tracker.managingUsersByAdmin.ManagingUsersByAdmin;
 import hr.java.covid_tracker.novozarazeni.NovozarazeniCommand;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 
@@ -87,6 +89,7 @@ public class Cijepljeni {
         this.email = cijepljeniCommand.getEmail();
         this.datumCijepljenja = cijepljeniCommand.getDatumCijepljenja();
         this.cijepivoID = cijepljeniCommand.getCijepivoID();
+        this.datUpisa = getDatUpisa();
     }
 
     public int getCijepljeniID() {
@@ -135,6 +138,14 @@ public class Cijepljeni {
 
     public int getCijepivoID() {
         return cijepivoID;
+    }
+
+    public String getDatUpisa() {
+        DateTimeFormatter format = DateTimeFormatter
+                .ofPattern("yyyy-MM-dd");
+
+        LocalDateTime now = LocalDateTime.now();
+        return now.format(format);
     }
 
 //    public List<Cijepljeni> getCijepljeni() {
