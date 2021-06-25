@@ -1,5 +1,6 @@
 package hr.java.covid_tracker.novozarazeni;
 
+import hr.java.covid_tracker.dashboard.Dashboard;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -51,26 +52,35 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
         return novozarazeniJpaRepository.countNovozarazeniByDate(datum);
     }
 
-    public List<Integer> novozarazeniByDate(){
+    public List<Dashboard> novozarazeniByDate(){
         DateTimeFormatter format = DateTimeFormatter
                 .ofPattern("yyyy-MM-dd");
 
-        DateTimeFormatter nazivDan = DateTimeFormatter
-                .ofPattern("EEEE");
+        LocalDateTime now = LocalDateTime.now();
+
+        List<Dashboard> datumi = new ArrayList<>();
+
+        for (int i = 6; i >= 0; i--){
+            datumi.add(new Dashboard(now.minusDays(i).format(format),countNovozarazeniByDate(now.minusDays(i).format(format))));
+        }
+        return datumi;
+    }
+
+    @Override
+    public Integer countHospitaliziraniByDate(String datum) {
+        return novozarazeniJpaRepository.countHospitaliziraniByDate(datum);
+    }
+
+    public List<Dashboard> hospitaliziraniByDate(){
+        DateTimeFormatter format = DateTimeFormatter
+                .ofPattern("yyyy-MM-dd");
 
         LocalDateTime now = LocalDateTime.now();
 
-//        Map<String, Integer> mapaDatuma = new LinkedHashMap<>();
-//
-//        for (int i = 7; i >= 0; i--){
-//            mapaDatuma.put((now.minusDays(i).format(nazivDan)),countNovozarazeniByDate(now.minusDays(i).format(format)));
-//        }
-//        return mapaDatuma;
+        List<Dashboard> datumi = new ArrayList<>();
 
-        List<Integer> datumi = new ArrayList<>();
-
-        for (int i = 7; i >= 0; i--){
-            datumi.add(countNovozarazeniByDate(now.minusDays(i).format(format)));
+        for (int i = 6; i >= 0; i--){
+            datumi.add(new Dashboard(now.minusDays(i).format(format),countHospitaliziraniByDate(now.minusDays(i).format(format))));
         }
         return datumi;
     }

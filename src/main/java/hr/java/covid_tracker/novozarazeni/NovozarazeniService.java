@@ -21,6 +21,8 @@ public interface NovozarazeniService {
 
     Integer countNovozarazeniByDate(String datum);
 
+    Integer countHospitaliziraniByDate(String datum);
+
     void update(int id, NovozarazeniCommand novozarazeniCommand);
 
     void deleteById(int id);

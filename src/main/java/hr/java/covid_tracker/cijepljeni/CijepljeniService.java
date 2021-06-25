@@ -22,4 +22,6 @@ public interface CijepljeniService {
 
     Integer findCijepljeniForDay();
 
+    Integer countCijepljeniByDate(String datum);
+
 }

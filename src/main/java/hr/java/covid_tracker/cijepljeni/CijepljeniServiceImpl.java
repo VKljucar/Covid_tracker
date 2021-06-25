@@ -1,7 +1,11 @@
 package hr.java.covid_tracker.cijepljeni;
 
+import hr.java.covid_tracker.dashboard.Dashboard;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +27,25 @@ public class CijepljeniServiceImpl implements CijepljeniService {
     @Override
     public Optional<CijepljeniDTO> findByParameters(String ime, String prezime, int cijepivo_id) {
         return cijepljeniJpaRepository.findAllByParameters(ime, prezime, cijepivo_id).map(CijepljeniDTO::new);
+    }
+
+    @Override
+    public Integer countCijepljeniByDate(String datum) {
+        return cijepljeniJpaRepository.countcijepljeniByDate(datum);
+    }
+
+    public List<Dashboard> cijepljeniByDate(){
+        DateTimeFormatter format = DateTimeFormatter
+                .ofPattern("yyyy-MM-dd");
+
+        LocalDateTime now = LocalDateTime.now();
+
+        List<Dashboard> datumi = new ArrayList<>();
+
+        for (int i = 6; i >= 0; i--){
+            datumi.add(new Dashboard(now.minusDays(i).format(format),countCijepljeniByDate(now.minusDays(i).format(format))));
+        }
+        return datumi;
     }
 
     @Override
