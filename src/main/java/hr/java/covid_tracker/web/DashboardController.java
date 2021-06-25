@@ -2,12 +2,12 @@ package hr.java.covid_tracker.web;
 
 import hr.java.covid_tracker.cijepljeni.CijepljeniService;
 import hr.java.covid_tracker.cijepljeni.CijepljeniServiceImpl;
+import hr.java.covid_tracker.dashboard.Dashboard;
 import hr.java.covid_tracker.novozarazeni.NovozarazeniService;
 import hr.java.covid_tracker.novozarazeni.NovozarazeniServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("dashboard")
@@ -56,9 +56,13 @@ public class DashboardController {
     }
 
     @GetMapping("/graf1")
-    public List<Integer> getNovozarazeniByDate(){
+    public List<Dashboard> getNovozarazeniByDate(){
         return novozarazeniServiceImpl.novozarazeniByDate();
     }
 
+    @GetMapping("/graf2")
+    public List<Integer> novozarazeniByDay(){
+        return novozarazeniServiceImpl.novozarazeniByDay();
+    }
 
 }
