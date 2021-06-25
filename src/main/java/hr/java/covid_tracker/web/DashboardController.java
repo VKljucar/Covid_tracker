@@ -18,11 +18,14 @@ public class DashboardController {
     private final NovozarazeniService novozarazeniService;
     private final CijepljeniService cijepljeniService;
     private final NovozarazeniServiceImpl novozarazeniServiceImpl;
+    private final CijepljeniServiceImpl cijepljeniServiceImpl;
 
-    public DashboardController(NovozarazeniServiceImpl novozarazeniService, CijepljeniServiceImpl cijepljeniService, NovozarazeniServiceImpl novozarazeniServiceImpl) {
+    public DashboardController(NovozarazeniServiceImpl novozarazeniService, CijepljeniServiceImpl cijepljeniService,
+                               NovozarazeniServiceImpl novozarazeniServiceImpl, CijepljeniServiceImpl cijepljeniServiceImpl) {
         this.novozarazeniService = novozarazeniService;
         this.cijepljeniService = cijepljeniService;
         this.novozarazeniServiceImpl = novozarazeniServiceImpl;
+        this.cijepljeniServiceImpl = cijepljeniServiceImpl;
     }
 
     @GetMapping("/allNovi")
@@ -56,13 +59,19 @@ public class DashboardController {
     }
 
     @GetMapping("/graf1")
-    public List<Dashboard> getNovozarazeniByDate(){
+    public List<Dashboard> getNovozarazeniByDate() {
         return novozarazeniServiceImpl.novozarazeniByDate();
     }
 
     @GetMapping("/graf2")
-    public List<Integer> novozarazeniByDay(){
-        return novozarazeniServiceImpl.novozarazeniByDay();
+    public List<Dashboard> getHospitaliziraniByDate() {
+        return novozarazeniServiceImpl.hospitaliziraniByDate();
     }
+
+    @GetMapping("/graf3")
+    public List<Dashboard> getCijepljeniByDate() {
+        return cijepljeniServiceImpl.cijepljeniByDate();
+    }
+
 
 }

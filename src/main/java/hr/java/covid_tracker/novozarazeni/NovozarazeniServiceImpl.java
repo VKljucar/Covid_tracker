@@ -56,9 +56,6 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
         DateTimeFormatter format = DateTimeFormatter
                 .ofPattern("yyyy-MM-dd");
 
-        DateTimeFormatter nazivDan = DateTimeFormatter
-                .ofPattern("EEEE");
-
         LocalDateTime now = LocalDateTime.now();
 
         List<Dashboard> datumi = new ArrayList<>();
@@ -69,16 +66,21 @@ public class NovozarazeniServiceImpl implements NovozarazeniService{
         return datumi;
     }
 
-    public List<Integer> novozarazeniByDay(){
+    @Override
+    public Integer countHospitaliziraniByDate(String datum) {
+        return novozarazeniJpaRepository.countHospitaliziraniByDate(datum);
+    }
+
+    public List<Dashboard> hospitaliziraniByDate(){
         DateTimeFormatter format = DateTimeFormatter
                 .ofPattern("yyyy-MM-dd");
 
         LocalDateTime now = LocalDateTime.now();
 
-        List<Integer> datumi = new ArrayList<>();
+        List<Dashboard> datumi = new ArrayList<>();
 
         for (int i = 6; i >= 0; i--){
-            datumi.add(countNovozarazeniByDate(now.minusDays(i).format(format)));
+            datumi.add(new Dashboard(now.minusDays(i).format(format),countHospitaliziraniByDate(now.minusDays(i).format(format))));
         }
         return datumi;
     }

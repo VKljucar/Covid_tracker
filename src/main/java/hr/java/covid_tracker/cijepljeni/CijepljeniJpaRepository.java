@@ -34,5 +34,8 @@ public interface CijepljeniJpaRepository extends JpaRepository<Cijepljeni, Integ
     @Query("SELECT count(p) FROM Cijepljeni p WHERE p.datUpisa = CURRENT_DATE")
     Integer findCijepljeniForDay();
 
+    @Query ("SELECT count(p) FROM Cijepljeni p WHERE p.datUpisa = :datum")
+    Integer countcijepljeniByDate(@Param("datum") String date);
+
 
 }

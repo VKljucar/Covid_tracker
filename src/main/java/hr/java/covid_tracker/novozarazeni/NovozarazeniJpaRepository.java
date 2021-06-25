@@ -37,6 +37,9 @@ public interface NovozarazeniJpaRepository extends JpaRepository<Novozarazeni, I
     @Query ("SELECT count(p) FROM Novozarazeni p WHERE p.datUpisa = :datum")
     Integer countNovozarazeniByDate(@Param("datum") String date);
 
+    @Query ("SELECT count(p) FROM Novozarazeni p WHERE p.datUpisa = :datum AND p.hospitaliziran = 'D'")
+    Integer countHospitaliziraniByDate(@Param("datum") String date);
+
     @Transactional
     @Modifying
     void deleteByOboljeliId(int oboljeli_id);
