@@ -1,5 +1,5 @@
 # Covid_tracker
-Covid-19 tracking application
+Covid-19 tracking app
 
 Web stranica covid-19.hr nudi jednostavan prikaz podataka zaraženih, cjepljenih i osoba na bolničkom lječenju.
 
