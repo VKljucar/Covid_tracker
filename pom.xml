@@ -8,7 +8,7 @@
         <version>2.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>hr.java</groupId>
+    <groupId>Covid_tracker.hr.java</groupId>
     <artifactId>Covid_tracker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Covid_tracker</name>
@@ -106,7 +106,27 @@
             <artifactId>spring-security-config</artifactId>
             <version>5.4.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.2</version>
+        </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                    http://localhost:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

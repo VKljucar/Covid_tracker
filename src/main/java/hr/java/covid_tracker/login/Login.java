@@ -1,11 +1,9 @@
 package hr.java.covid_tracker.login;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hr.java.covid_tracker.novozarazeni.Novozarazeni;
 
 import javax.persistence.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 

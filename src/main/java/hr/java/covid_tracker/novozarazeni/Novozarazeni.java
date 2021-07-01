@@ -5,7 +5,6 @@ import hr.java.covid_tracker.login.Login;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Objects;
 
 @Entity

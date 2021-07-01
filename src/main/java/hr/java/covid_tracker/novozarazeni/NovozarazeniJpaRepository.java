@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface NovozarazeniJpaRepository extends JpaRepository<Novozarazeni, Integer> {
@@ -42,6 +41,6 @@ public interface NovozarazeniJpaRepository extends JpaRepository<Novozarazeni, I
 
     @Transactional
     @Modifying
-    void deleteByOboljeliId(int oboljeli_id);
+    void deleteByOboljeliId(int oboljeliId);
 
 }

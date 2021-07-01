@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface LoginService {
 
-    List<LoginDTO> findAll();
+    List<Login> findAll();
 
     Optional<LoginDTO> findUser(String korisnickoIme, String lozinka);
 

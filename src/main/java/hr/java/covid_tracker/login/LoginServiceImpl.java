@@ -9,17 +9,15 @@ import java.util.stream.Collectors;
 @Service
 class LoginServiceImpl implements LoginService{
 
-    private final LoginRepository loginRepository;
     private final LoginJpaRepository loginJpaRepository;
 
-    public LoginServiceImpl(LoginRepository loginRepository, LoginJpaRepository loginJpaRepository) {
-        this.loginRepository = loginRepository;
+    public LoginServiceImpl(LoginJpaRepository loginJpaRepository) {
         this.loginJpaRepository = loginJpaRepository;
     }
 
     @Override
-    public List<LoginDTO> findAll() {
-        return loginJpaRepository.findAll().stream().map(LoginDTO::new).collect(Collectors.toList());
+    public List<Login> findAll() {
+        return loginJpaRepository.findAll().stream().collect(Collectors.toList());
     }
 
     @Override
